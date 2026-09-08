@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+
+@theme {
+  /* Brand palette — luxury/editorial, warm neutrals with a moss-green accent */
+  --color-ink: #24312b;
+  --color-muted: #6e766f;
+  --color-cream: #f4f1e9;
+  --color-paper: #fbfaf6;
+  --color-sage: #9aa891;
+  --color-moss: #596b5b;
+  --color-moss-dark: #29382f;
+  --color-line: rgba(36, 49, 43, 0.18);
+  --color-rust: #bc695a;
+
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-paper);
+}
+
+/* Utility for the small uppercase mono labels used throughout the template */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
