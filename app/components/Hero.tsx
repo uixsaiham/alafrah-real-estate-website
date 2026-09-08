@@ -15,10 +15,9 @@ export default function Hero({ onEnquire }: { onEnquire: () => void }) {
   return (
     <section id="top" className="relative flex flex-col min-h-[100svh] overflow-hidden text-white">
       <HeroSlider />
+      <Nav onEnquire={onEnquire} transparentAtTop />
 
-      <div className="relative z-10 shrink-0">
-        <Nav onEnquire={onEnquire} />
-      </div>
+      <div className="shrink-0 h-[75px] md:h-[94px]" aria-hidden />
 
       <div className="relative z-10 flex-1 flex flex-col justify-center py-8">
         <Container>

@@ -53,7 +53,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         <Nav onEnquire={() => setEnquiryOpen(true)} />
       </div>
 
-      <Container className="pt-[40px] pb-[36px] md:pt-[56px]">
+      <Container className="pt-[115px] pb-[36px] md:pt-[150px]">
         <Reveal>
           <p className="flex items-center gap-[5px] text-moss font-mono text-[10px] uppercase tracking-[.05em] mb-4">
             <MapPin size={13} strokeWidth={1.5} /> {project.location}

@@ -46,10 +46,10 @@ export default function Journal() {
             </Link>
           </Reveal>
           {small.map((post, index) => (
-            <Reveal key={post.slug} delay={(index + 1) * 0.1}>
+            <Reveal key={post.slug} delay={(index + 1) * 0.1} className="[perspective:1200px]">
               <Link
                 href={`/blog/${post.slug}`}
-                className={`block min-h-[215px] md:min-h-[240px] px-7 py-[27px] h-full ${smallBg[index]}`}
+                className={`group relative block min-h-[215px] md:min-h-[240px] px-7 py-[27px] h-full transition-all duration-500 ease-out hover:z-10 hover:shadow-[0_30px_55px_rgba(0,0,0,.28)] hover:[transform:translateY(-10px)_scale(1.035)_rotateX(3deg)] ${smallBg[index]}`}
               >
                 <p
                   className={`font-mono text-[10px] uppercase tracking-[.09em] mb-[15px] ${
@@ -58,11 +58,23 @@ export default function Journal() {
                 >
                   {post.category} · {post.readTime}
                 </p>
-                <h3 className="font-serif font-medium text-[28px] leading-[1.05] tracking-[-.035em] mt-9 mb-6 max-w-[380px]">
+                <h3 className="font-serif font-medium text-[28px] leading-[1.05] tracking-[-.035em] mt-9 mb-3 max-w-[380px]">
                   {post.title}
                 </h3>
+                <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
+                  <div className="overflow-hidden">
+                    <div className="relative -mx-7 mb-4 h-[140px] overflow-hidden">
+                      <div
+                        className="absolute inset-0 bg-cover bg-center scale-110 group-hover:scale-100 transition-transform duration-700 ease-out"
+                        style={{ backgroundImage: `url('${post.image}')` }}
+                      />
+                    </div>
+                    <p className="text-[13px] leading-[1.5] opacity-80 pb-4 max-w-[340px]">{post.excerpt}</p>
+                  </div>
+                </div>
                 <span className="flex items-center gap-2 text-[13px]">
-                  Read story <ArrowUpRight size={15} />
+                  Read story{" "}
+                  <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
                 </span>
               </Link>
             </Reveal>

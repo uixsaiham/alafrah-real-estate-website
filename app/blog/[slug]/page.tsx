@@ -47,7 +47,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
         <Nav onEnquire={() => setEnquiryOpen(true)} />
       </div>
 
-      <Container className="pt-[40px] pb-[36px] md:pt-[56px] max-w-none">
+      <Container className="pt-[115px] pb-[36px] md:pt-[150px] max-w-none">
         <Reveal>
           <p className="font-mono text-[10px] uppercase tracking-[.07em] text-moss mb-4">
             {post.category} · {post.readTime}

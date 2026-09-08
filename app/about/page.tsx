@@ -39,7 +39,7 @@ export default function AboutPage() {
     <main>
       <div className="bg-moss-dark">
         <Nav onEnquire={() => setEnquiryOpen(true)} />
-        <Container className="pt-[50px] pb-[64px] md:pt-[70px] md:pb-[80px]">
+        <Container className="pt-[125px] pb-[64px] md:pt-[164px] md:pb-[80px]">
           <Reveal>
             <Kicker className="text-[#dce5d6]">About Green Estate</Kicker>
             <h1 className="font-serif font-medium text-white text-[44px] md:text-[60px] leading-[1.02] tracking-[-.04em] max-w-[720px]">

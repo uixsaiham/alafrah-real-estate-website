@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowUpRight, Menu, Phone, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "./Container";
 
 const links = [
@@ -12,8 +12,26 @@ const links = [
   { href: "/contact", label: "Contact" },
 ];
 
-export default function Nav({ onEnquire, onDark = true }: { onEnquire: () => void; onDark?: boolean }) {
+export default function Nav({
+  onEnquire,
+  onDark = true,
+  transparentAtTop = false,
+}: {
+  onEnquire: () => void;
+  onDark?: boolean;
+  /** Start transparent (for sitting over a photo) and gain a solid background once scrolled. */
+  transparentAtTop?: boolean;
+}) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [solid, setSolid] = useState(!transparentAtTop);
+
+  useEffect(() => {
+    if (!transparentAtTop) return;
+    const onScroll = () => setSolid(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [transparentAtTop]);
 
   const textColor = onDark ? "text-white" : "text-ink";
   const mutedColor = onDark ? "text-white/82" : "text-muted";
@@ -21,40 +39,50 @@ export default function Nav({ onEnquire, onDark = true }: { onEnquire: () => voi
   const outlineBorder = onDark ? "border-white/55" : "border-ink/55";
 
   return (
-    <Container>
-      <nav className={`relative z-20 flex h-[75px] md:h-[94px] items-center justify-between border-b ${borderColor}`}>
-        <a href="/" aria-label="Green Estate home" className={`flex items-center gap-[9px] text-xl tracking-[-0.05em] font-medium ${textColor}`}>
-          <span className="grid place-items-center w-[27px] h-[27px] border border-current rounded-full font-serif italic text-[17px]">
-            G
-          </span>
-          Green Estate
-        </a>
-        <div className={`hidden md:flex gap-[34px] ml-[90px] text-[13px] ${mutedColor}`}>
-          {links.map((link) => (
-            <a key={link.href} href={link.href} className={onDark ? "hover:text-white" : "hover:text-ink"}>
-              {link.label}
-            </a>
-          ))}
-        </div>
-        <div className={`flex items-center gap-[22px] text-[13px] ${textColor}`}>
-          <a href="tel:+8801711030749" className="hidden md:flex items-center gap-2">
-            <Phone size={14} /> 01711-030749
+    <div
+      className={`fixed top-0 inset-x-0 z-50 transition-[background-color,box-shadow] duration-300 ${
+        solid ? "bg-moss-dark/95 backdrop-blur-md shadow-[0_2px_24px_rgba(0,0,0,.18)]" : "bg-transparent"
+      }`}
+    >
+      <Container>
+        <nav
+          className={`flex h-[75px] md:h-[94px] items-center justify-between border-b transition-colors duration-300 ${
+            solid ? "border-transparent" : borderColor
+          }`}
+        >
+          <a href="/" aria-label="Green Estate home" className={`flex items-center gap-[9px] text-xl tracking-[-0.05em] font-medium ${textColor}`}>
+            <span className="grid place-items-center w-[27px] h-[27px] border border-current rounded-full font-serif italic text-[17px]">
+              G
+            </span>
+            Green Estate
           </a>
-          <button
-            className={`hidden md:flex gap-[10px] items-center bg-transparent px-[15px] py-[11px] border transition-colors duration-200 ${onDark ? "hover:bg-white/10" : "hover:bg-ink/5"} ${outlineBorder}`}
-            onClick={onEnquire}
-          >
-            Book a visit <ArrowUpRight size={15} />
-          </button>
-          <button
-            className="md:hidden border-0 bg-transparent"
-            aria-label="Open navigation"
-            onClick={() => setMobileOpen(true)}
-          >
-            <Menu size={19} />
-          </button>
-        </div>
-      </nav>
+          <div className={`hidden md:flex gap-[34px] ml-[90px] text-[13px] ${mutedColor}`}>
+            {links.map((link) => (
+              <a key={link.href} href={link.href} className={onDark ? "hover:text-white" : "hover:text-ink"}>
+                {link.label}
+              </a>
+            ))}
+          </div>
+          <div className={`flex items-center gap-[22px] text-[13px] ${textColor}`}>
+            <a href="tel:+8801711030749" className="hidden md:flex items-center gap-2">
+              <Phone size={14} /> 01711-030749
+            </a>
+            <button
+              className={`hidden md:flex gap-[10px] items-center bg-transparent px-[15px] py-[11px] border transition-colors duration-200 ${onDark ? "hover:bg-white/10" : "hover:bg-ink/5"} ${outlineBorder}`}
+              onClick={onEnquire}
+            >
+              Book a visit <ArrowUpRight size={15} />
+            </button>
+            <button
+              className="md:hidden border-0 bg-transparent"
+              aria-label="Open navigation"
+              onClick={() => setMobileOpen(true)}
+            >
+              <Menu size={19} />
+            </button>
+          </div>
+        </nav>
+      </Container>
 
       {mobileOpen && (
         <div className="fixed inset-0 z-50 bg-moss-dark text-white p-6 md:hidden">
@@ -90,6 +118,6 @@ export default function Nav({ onEnquire, onDark = true }: { onEnquire: () => voi
           </a>
         </div>
       )}
-    </Container>
+    </div>
   );
 }
