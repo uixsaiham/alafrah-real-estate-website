@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { projects } from "../data/projects";
 import { BD_SUSTAINABLE_AERIAL } from "../data/images";
+import { useLanguage } from "../context/LanguageContext";
 
 const SLIDE_DURATION = 6000;
 
@@ -15,6 +16,7 @@ const slides = [
     image: project.image,
     kicker: project.status,
     title: project.name,
+    titleBn: project.nameBn,
     location: project.location,
     meta: `${project.startingPrice}${project.priceUnit === "total" ? " onwards" : ""}`,
     href: `/projects/${project.slug}`,
@@ -23,6 +25,7 @@ const slides = [
     image: BD_SUSTAINABLE_AERIAL,
     kicker: "Our commitment",
     title: "Sustainable by design",
+    titleBn: "টেকসই নকশায় তৈরি",
     location: "Every Green Estate project",
     meta: "See our approach",
     href: "/about",
@@ -30,6 +33,7 @@ const slides = [
 ];
 
 export default function HeroSlider() {
+  const { language } = useLanguage();
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -41,6 +45,7 @@ export default function HeroSlider() {
   }, [paused]);
 
   const slide = slides[index];
+  const slideTitle = language === "bn" ? slide.titleBn : slide.title;
 
   return (
     <div
@@ -59,7 +64,7 @@ export default function HeroSlider() {
         >
           <motion.img
             src={slide.image}
-            alt={slide.title}
+            alt={slideTitle}
             className="w-full h-full object-cover"
             initial={{ scale: 1 }}
             animate={{ scale: 1.1 }}
@@ -84,7 +89,15 @@ export default function HeroSlider() {
           >
             <Link href={slide.href} className="group block">
               <p className="font-mono text-[10px] uppercase tracking-[.08em] text-white/70 mb-2">{slide.kicker}</p>
-              <p className="font-serif text-[22px] leading-[1.1] mb-1 group-hover:underline">{slide.title}</p>
+              <p
+                className={
+                  language === "bn"
+                    ? "font-bengali-serif font-semibold text-[24px] leading-[1.45] mb-1 group-hover:underline"
+                    : "font-serif text-[22px] leading-[1.1] mb-1 group-hover:underline"
+                }
+              >
+                {slideTitle}
+              </p>
               <p className="text-white/75 text-[12px]">
                 {slide.location} · {slide.meta}
               </p>
@@ -97,7 +110,7 @@ export default function HeroSlider() {
             <button
               key={s.title}
               onClick={() => setIndex(i)}
-              aria-label={`Show slide ${i + 1}: ${s.title}`}
+              aria-label={`Show slide ${i + 1}: ${language === "bn" ? s.titleBn : s.title}`}
               className="relative h-[3px] w-8 bg-white/25 overflow-hidden"
             >
               {i === index && (

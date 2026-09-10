@@ -12,8 +12,10 @@ import ProjectCard from "../../components/ProjectCard";
 import Reveal from "../../components/Reveal";
 import Section from "../../components/Section";
 import { getProjectBySlug, projects } from "../../data/projects";
+import { useLanguage } from "../../context/LanguageContext";
 
 export default function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { language } = useLanguage();
   const { slug } = use(params);
   const project = getProjectBySlug(slug);
   const [activeImage, setActiveImage] = useState(0);
@@ -59,7 +61,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
             <MapPin size={13} strokeWidth={1.5} /> {project.location}
           </p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-            <h1 className="font-serif font-medium text-[40px] md:text-[58px] leading-[1.02] tracking-[-.04em] max-w-[720px]">
+            <h1 className="font-serif font-bold text-[40px] md:text-[58px] leading-[1.02] tracking-[-.04em] max-w-[720px]">
               {project.name}
             </h1>
             <p className="font-mono text-[15px] whitespace-nowrap">
@@ -134,9 +136,15 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
           <Container className="grid grid-cols-1 md:grid-cols-[1fr_1.3fr] gap-[60px] py-[64px] md:py-[96px]">
             <Reveal>
               <p className="font-mono text-[10px] uppercase tracking-[.07em] text-moss mb-4">Plan your budget</p>
-              <h2 className="font-serif font-medium text-[34px] leading-[1.05] tracking-[-.03em] mb-5">
-                Know your numbers<br /><em className="italic">before you visit.</em>
-              </h2>
+              {language === "bn" ? (
+                <h2 className="font-bengali-serif font-extrabold text-[32px] leading-[1.4] mb-5">
+                  সংখ্যা বুঝে নিন<br /><em className="not-italic text-gold-dark">দেখতে যাওয়ার আগে।</em>
+                </h2>
+              ) : (
+                <h2 className="font-serif font-bold text-[34px] leading-[1.05] tracking-[-.03em] mb-5">
+                  Know your numbers<br /><em className="italic">before you visit.</em>
+                </h2>
+              )}
               <p className="text-muted text-[15px] leading-[1.7] max-w-[380px]">
                 Adjust the down payment, tenure, and interest rate to see an estimated monthly payment for{" "}
                 {project.name}.{" "}
@@ -156,7 +164,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         <Section>
           <Container className="pb-[84px] md:pb-[130px]">
             <Reveal>
-              <h2 className="font-serif font-medium text-[32px] mb-8">More from Green Estate</h2>
+              <h2 className="font-serif font-bold text-[32px] mb-8">More from Green Estate</h2>
             </Reveal>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[22px]">
               {similar.map((p, index) => (

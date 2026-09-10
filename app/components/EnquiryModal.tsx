@@ -3,8 +3,10 @@
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { projects } from "../data/projects";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function EnquiryModal({ onClose }: { onClose: () => void }) {
+  const { language } = useLanguage();
   return (
     <motion.div
       className="fixed inset-0 z-50 grid place-items-center p-5 bg-[rgba(27,39,31,.64)]"
@@ -28,9 +30,15 @@ export default function EnquiryModal({ onClose }: { onClose: () => void }) {
           Close <span className="text-2xl font-light">×</span>
         </button>
         <p className="font-mono text-[10px] uppercase tracking-[.09em] text-moss mb-[15px]">Book a visit</p>
-        <h2 className="font-serif font-medium text-[42px] md:text-[48px] mb-[35px] leading-[1.05]">
-          See a project<br /><em className="italic">in person.</em>
-        </h2>
+        {language === "bn" ? (
+          <h2 className="font-bengali-serif font-extrabold text-[36px] md:text-[44px] mb-[35px] leading-[1.4]">
+            সরাসরি দেখুন <em className="not-italic text-gold-dark">প্রকল্পটি।</em>
+          </h2>
+        ) : (
+          <h2 className="font-serif font-bold text-[42px] md:text-[48px] mb-[35px] leading-[1.05]">
+            See a project<br /><em className="italic text-gold-dark">in person.</em>
+          </h2>
+        )}
         <label className="grid gap-2 mb-[18px] text-moss font-mono text-[10px] uppercase tracking-[.07em]">
           Phone number
           <input

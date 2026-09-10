@@ -6,6 +6,7 @@ import Container from "./Container";
 import Kicker from "./Kicker";
 import Reveal from "./Reveal";
 import Section from "./Section";
+import { useLanguage } from "../context/LanguageContext";
 
 const inquiryTypes = ["Booking", "Payment", "Discussion", "Site visit", "Customization"];
 
@@ -14,6 +15,7 @@ const inputClass =
 const labelClass = "grid gap-2 text-moss font-mono text-[10px] uppercase tracking-[.07em]";
 
 export default function Contact() {
+  const { language } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
 
   return (
@@ -21,9 +23,15 @@ export default function Contact() {
       <Container className="grid grid-cols-1 md:grid-cols-2 gap-[60px] md:gap-[80px]">
         <Reveal>
           <Kicker>Get in touch</Kicker>
-          <h2 className="font-serif font-medium text-[44px] md:text-[52px] leading-[1.02] tracking-[-.04em] mb-8">
-            Let&apos;s talk about<br /><em className="italic">your next home.</em>
-          </h2>
+          {language === "bn" ? (
+            <h2 className="font-bengali-serif font-extrabold text-[42px] md:text-[52px] leading-[1.35] mb-8">
+              আসুন,<br /><em className="not-italic text-gold-dark">একসাথে আপনার স্বপ্নের বাড়ির পরিকল্পনা করি।</em>
+            </h2>
+          ) : (
+            <h2 className="font-serif font-bold text-[44px] md:text-[52px] leading-[1.02] tracking-[-.04em] mb-8">
+              Let&apos;s shape<br /><em className="italic text-gold-dark">your next chapter.</em>
+            </h2>
+          )}
           <div className="grid gap-6">
             <a href="tel:+8801711030749" className="flex items-center gap-4">
               <span className="grid place-items-center w-11 h-11 rounded-full bg-paper text-moss shrink-0">

@@ -1,11 +1,16 @@
+"use client";
+
 import { ArrowUpRight, BedDouble, MapPin, Ruler } from "lucide-react";
 import Link from "next/link";
-import type { Project } from "../data/projects";
+import type { Project, ProjectStatus } from "../data/projects";
+import { useLanguage } from "../context/LanguageContext";
+
+const EASE = "ease-[cubic-bezier(.22,1,.36,1)]";
 
 const listingBadgeStyle: Record<Project["listingType"], string> = {
-  Buy: "bg-moss text-white",
-  Rent: "bg-paper text-moss",
-  Sell: "bg-ink text-white",
+  Buy: "bg-moss/90 text-white",
+  Rent: "bg-paper/90 text-moss",
+  Sell: "bg-ink/90 text-white",
 };
 
 const listingBadgeLabel: Record<Project["listingType"], string> = {
@@ -14,45 +19,88 @@ const listingBadgeLabel: Record<Project["listingType"], string> = {
   Sell: "For sale",
 };
 
+const statusDot: Record<ProjectStatus, string> = {
+  "Ready to move": "bg-sage",
+  "Under construction": "bg-rust",
+  "Sold out": "bg-[#e9e8df]/60",
+};
+
 export default function ProjectCard({ project }: { project: Project }) {
+  const { language } = useLanguage();
   const snippet = project.description.split(". ")[0].trim().replace(/\.$/, "") + ".";
 
   return (
-    <Link href={`/projects/${project.slug}`} className="group block h-full flex flex-col">
+    <Link
+      href={`/projects/${project.slug}`}
+      className={`group block h-full flex flex-col bg-paper border border-line/70 transition-[transform,box-shadow,border-color] duration-500 ${EASE} hover:-translate-y-[6px] hover:border-line hover:shadow-[0_28px_60px_rgba(36,49,43,.16)]`}
+    >
       <div className="relative aspect-[16/11] overflow-hidden bg-[#ddd]">
         <img
           src={project.image}
           alt={project.name}
-          className="w-full h-full object-cover block transition-transform duration-700 ease-out group-hover:scale-[1.035]"
+          className={`w-full h-full object-cover block transition-transform duration-[900ms] ${EASE} group-hover:scale-[1.08]`}
         />
-        <span className={`absolute left-[15px] top-[15px] px-[9px] py-[7px] font-mono text-[10px] uppercase tracking-[.06em] ${listingBadgeStyle[project.listingType]}`}>
+        <div
+          className={`absolute inset-0 bg-gradient-to-t from-black/45 via-black/0 to-black/0 opacity-80 group-hover:opacity-95 transition-opacity duration-500 ${EASE}`}
+        />
+
+        <span
+          className={`absolute left-[15px] top-[15px] px-[10px] py-[7px] backdrop-blur-sm font-mono text-[10px] uppercase tracking-[.06em] transition-transform duration-500 ${EASE} group-hover:-translate-y-0.5 ${listingBadgeStyle[project.listingType]}`}
+        >
           {listingBadgeLabel[project.listingType]}
         </span>
-        <span className="absolute right-[15px] top-[15px] px-[9px] py-[7px] bg-paper/90 text-ink font-mono text-[10px] uppercase tracking-[.06em]">
+        <span
+          className={`absolute right-[15px] top-[15px] px-[10px] py-[7px] bg-paper/90 backdrop-blur-sm text-ink font-mono text-[10px] uppercase tracking-[.06em] transition-transform duration-500 ${EASE} group-hover:-translate-y-0.5`}
+        >
           {project.type}
         </span>
+
+        <span
+          className={`absolute left-[15px] bottom-[15px] inline-flex items-center gap-[7px] px-[10px] py-[6px] bg-black/35 backdrop-blur-sm text-white font-mono text-[10px] uppercase tracking-[.06em] opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ${EASE}`}
+        >
+          <span className={`w-[6px] h-[6px] rounded-full ${statusDot[project.status]}`} />
+          {project.status}
+        </span>
       </div>
-      <div className="flex flex-col flex-1 pt-[17px]">
+
+      <div className="flex flex-col flex-1 p-[22px]">
         <p className="flex items-center gap-[5px] text-moss font-mono text-[10px] uppercase tracking-[.05em] mb-[10px]">
           <MapPin size={13} strokeWidth={1.5} /> {project.location}
         </p>
-        <div className="flex justify-between gap-[12px] mb-[10px]">
-          <h3 className="font-serif font-medium text-[22px] leading-[1.15] tracking-[-.02em]">{project.name}</h3>
-          <p className="whitespace-nowrap font-mono font-medium text-[13px] pt-1">{project.startingPrice}</p>
+        <div className="flex items-start justify-between gap-[12px] mb-[10px]">
+          <h3
+            className={
+              language === "bn"
+                ? "font-bengali-serif font-semibold text-[23px] leading-[1.45]"
+                : "font-serif font-bold text-[22px] leading-[1.15] tracking-[-.02em]"
+            }
+          >
+            {language === "bn" ? project.nameBn : project.name}
+          </h3>
+          <span className="whitespace-nowrap px-[10px] py-[5px] bg-cream font-mono font-medium text-[12px] text-ink">
+            {project.startingPrice}
+          </span>
         </div>
         <p className="text-muted text-[13px] leading-[1.55] mb-4 line-clamp-2">{snippet}</p>
-        <div className="flex items-center gap-[14px] border-t border-line mt-auto pt-[11px] text-muted font-mono text-[11px] flex-wrap">
+
+        <div className="flex items-center gap-x-[12px] gap-y-2 flex-wrap mt-auto pt-[14px] border-t border-line">
+          <span className="flex items-center gap-[6px] px-[9px] py-[5px] bg-cream text-ink font-mono text-[11px]">
+            <Ruler size={13} strokeWidth={1.6} /> {project.sizeSqft}
+          </span>
+          <span className="text-muted font-mono text-[11px]">{project.sizeKatha}</span>
           {project.bedrooms && (
-            <span className="flex items-center gap-[6px]">
-              <BedDouble size={15} /> {project.bedrooms} bed
+            <span className="flex items-center gap-[6px] px-[9px] py-[5px] bg-cream text-ink font-mono text-[11px]">
+              <BedDouble size={13} strokeWidth={1.6} /> {project.bedrooms} bed
             </span>
           )}
-          <span className="flex items-center gap-[6px]">
-            <Ruler size={15} /> {project.sizeKatha}
-          </span>
-          {project.listingType === "Buy" && <span>{project.status}</span>}
-          <span className="ml-auto flex items-center gap-[4px] text-ink">
-            View <ArrowUpRight size={14} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+          <span
+            className={`ml-auto flex items-center gap-[4px] text-ink font-mono text-[11px] transition-transform duration-300 ${EASE} group-hover:translate-x-[2px]`}
+          >
+            View{" "}
+            <ArrowUpRight
+              size={14}
+              className={`transition-transform duration-300 ${EASE} group-hover:translate-x-1 group-hover:-translate-y-1`}
+            />
           </span>
         </div>
       </div>

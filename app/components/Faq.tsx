@@ -6,6 +6,7 @@ import Container from "./Container";
 import Kicker from "./Kicker";
 import Reveal from "./Reveal";
 import Section from "./Section";
+import { useLanguage } from "../context/LanguageContext";
 
 const faqs = [
   {
@@ -31,6 +32,7 @@ const faqs = [
 ];
 
 export default function Faq() {
+  const { language } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -38,9 +40,15 @@ export default function Faq() {
       <Container className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-[60px]">
         <Reveal>
           <Kicker>FAQs</Kicker>
-          <h2 className="font-serif font-medium text-[36px] md:text-[44px] leading-[1.05] tracking-[-.03em] max-w-[380px]">
-            Questions we hear<br /><em className="italic">most often.</em>
-          </h2>
+          {language === "bn" ? (
+            <h2 className="font-bengali-serif font-extrabold text-[36px] md:text-[44px] leading-[1.4] max-w-[420px]">
+              সবচেয়ে জরুরি<br /><em className="not-italic text-gold-dark">প্রশ্নের উত্তর।</em>
+            </h2>
+          ) : (
+            <h2 className="font-serif font-bold text-[36px] md:text-[44px] leading-[1.05] tracking-[-.03em] max-w-[380px]">
+              Answers to what<br /><em className="italic text-gold-dark">matters most.</em>
+            </h2>
+          )}
         </Reveal>
         <Reveal delay={0.1}>
           <div className="grid">

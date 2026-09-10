@@ -1,3 +1,5 @@
+"use client";
+
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Container from "./Container";
@@ -5,8 +7,10 @@ import Kicker from "./Kicker";
 import Reveal from "./Reveal";
 import Section from "./Section";
 import { blogPosts } from "../data/blog";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Journal() {
+  const { language } = useLanguage();
   const [feature, ...rest] = blogPosts;
   const small = rest.slice(0, 2);
   const smallBg = ["bg-[#dcd9cc]", "bg-[#72816d] text-[#f5f3eb]"];
@@ -17,9 +21,15 @@ export default function Journal() {
         <Reveal className="flex flex-col md:flex-row md:justify-between md:items-end mb-[35px] md:mb-[48px] gap-[25px]">
           <div>
             <Kicker>News & journal</Kicker>
-            <h2 className="font-serif font-medium text-[44px] md:text-[52px] leading-[1.02] tracking-[-.04em]">
-              Notes on <em className="italic">building well.</em>
-            </h2>
+            {language === "bn" ? (
+              <h2 className="font-bengali-serif font-extrabold text-[42px] md:text-[52px] leading-[1.35]">
+                আপনার পছন্দের ঘর সাজানোর টিপস<br /><em className="not-italic text-gold-dark">ও নির্মাণ ভাবনা।</em>
+              </h2>
+            ) : (
+              <h2 className="font-serif font-bold text-[44px] md:text-[52px] leading-[1.02] tracking-[-.04em]">
+                Stories from <em className="italic text-gold-dark">the build.</em>
+              </h2>
+            )}
           </div>
           <a href="/blog" className="flex items-center gap-[10px] pb-[7px] border-b border-ink text-[13px] w-max">
             Read the journal <ArrowUpRight size={16} />
@@ -36,8 +46,14 @@ export default function Journal() {
                 <Kicker>
                   {feature.category} · {feature.readTime}
                 </Kicker>
-                <h3 className="font-serif font-medium text-[31px] leading-[1.05] tracking-[-.035em] mb-[34px] max-w-[380px]">
-                  {feature.title}
+                <h3
+                  className={
+                    language === "bn"
+                      ? "font-bengali-serif font-semibold text-[26px] leading-[1.45] mb-[34px] max-w-[380px]"
+                      : "font-serif font-bold text-[31px] leading-[1.05] tracking-[-.035em] mb-[34px] max-w-[380px]"
+                  }
+                >
+                  {language === "bn" ? feature.titleBn : feature.title}
                 </h3>
                 <span className="flex items-center gap-2 text-[13px]">
                   Read story <ArrowUpRight size={15} />
@@ -49,7 +65,7 @@ export default function Journal() {
             <Reveal key={post.slug} delay={(index + 1) * 0.1} className="[perspective:1200px]">
               <Link
                 href={`/blog/${post.slug}`}
-                className={`group relative block min-h-[215px] md:min-h-[240px] px-7 py-[27px] h-full transition-all duration-500 ease-out hover:z-10 hover:shadow-[0_30px_55px_rgba(0,0,0,.28)] hover:[transform:translateY(-10px)_scale(1.035)_rotateX(3deg)] ${smallBg[index]}`}
+                className={`group relative isolate block min-h-[215px] md:min-h-[240px] px-7 py-[27px] transition-all duration-500 ease-out hover:z-20 hover:shadow-[0_30px_55px_rgba(0,0,0,.28)] hover:[transform:translateY(-10px)_scale(1.035)_rotateX(3deg)] ${smallBg[index]}`}
               >
                 <p
                   className={`font-mono text-[10px] uppercase tracking-[.09em] mb-[15px] ${
@@ -58,24 +74,32 @@ export default function Journal() {
                 >
                   {post.category} · {post.readTime}
                 </p>
-                <h3 className="font-serif font-medium text-[28px] leading-[1.05] tracking-[-.035em] mt-9 mb-3 max-w-[380px]">
-                  {post.title}
+                <h3
+                  className={
+                    language === "bn"
+                      ? "font-bengali-serif font-semibold text-[22px] leading-[1.45] mt-9 mb-3 max-w-[380px]"
+                      : "font-serif font-bold text-[28px] leading-[1.05] tracking-[-.035em] mt-9 mb-3 max-w-[380px]"
+                  }
+                >
+                  {language === "bn" ? post.titleBn : post.title}
                 </h3>
-                <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-out">
-                  <div className="overflow-hidden">
-                    <div className="relative -mx-7 mb-4 h-[140px] overflow-hidden">
-                      <div
-                        className="absolute inset-0 bg-cover bg-center scale-110 group-hover:scale-100 transition-transform duration-700 ease-out"
-                        style={{ backgroundImage: `url('${post.image}')` }}
-                      />
-                    </div>
-                    <p className="text-[13px] leading-[1.5] opacity-80 pb-4 max-w-[340px]">{post.excerpt}</p>
-                  </div>
-                </div>
                 <span className="flex items-center gap-2 text-[13px]">
                   Read story{" "}
                   <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
                 </span>
+
+                {/* Flyout is absolutely positioned so its growth doesn't stretch the sibling card sharing this grid row. */}
+                <div
+                  className={`absolute left-0 right-0 top-full overflow-hidden max-h-0 group-hover:max-h-[280px] transition-[max-height] duration-500 ease-out shadow-[0_20px_45px_rgba(0,0,0,.25)] ${smallBg[index]}`}
+                >
+                  <div className="relative h-[160px] overflow-hidden">
+                    <div
+                      className="absolute inset-0 bg-cover bg-center scale-110 group-hover:scale-100 transition-transform duration-700 ease-out"
+                      style={{ backgroundImage: `url('${post.image}')` }}
+                    />
+                  </div>
+                  <p className="text-[13px] leading-[1.5] opacity-80 px-7 py-5 max-w-[340px]">{post.excerpt}</p>
+                </div>
               </Link>
             </Reveal>
           ))}

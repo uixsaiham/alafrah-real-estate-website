@@ -14,35 +14,56 @@ import ProjectCard from "../components/ProjectCard";
 import Reveal from "../components/Reveal";
 import type { ListingType } from "../data/projects";
 import { projects } from "../data/projects";
+import { BD_ALIF_BREEZE, BD_DHANMONDI_VIEW, BD_MUGDA_TERRACED } from "../data/images";
+import { useLanguage } from "../context/LanguageContext";
 
-const headings: Record<ListingType, { kicker: string; title: React.ReactNode }> = {
+const headings: Record<ListingType, { kicker: string; titleBn: React.ReactNode; titleEn: React.ReactNode; image: string }> = {
   Buy: {
     kicker: "Our portfolio",
-    title: (
+    titleBn: (
       <>
-        Every project,<br /><em className="italic">one place to browse.</em>
+        সব প্রকল্প,<br /><em className="not-italic text-gold">এক জায়গায়।</em>
       </>
     ),
+    titleEn: (
+      <>
+        Every project,<br /><em className="italic text-gold">one place to browse.</em>
+      </>
+    ),
+    image: BD_DHANMONDI_VIEW,
   },
   Rent: {
     kicker: "Rentals",
-    title: (
+    titleBn: (
       <>
-        Flats ready<br /><em className="italic">to move into.</em>
+        উঠে যাওয়ার জন্য প্রস্তুত,<br /><em className="not-italic text-gold">আপনার অপেক্ষায়।</em>
       </>
     ),
+    titleEn: (
+      <>
+        Move-in ready,<br /><em className="italic text-gold">waiting for you.</em>
+      </>
+    ),
+    image: BD_MUGDA_TERRACED,
   },
   Sell: {
     kicker: "Resale",
-    title: (
+    titleBn: (
       <>
-        Verified flats,<br /><em className="italic">independently owned.</em>
+        যাচাইকৃত ফ্ল্যাট,<br /><em className="not-italic text-gold">ব্যক্তিমালিকানাধীন।</em>
       </>
     ),
+    titleEn: (
+      <>
+        Verified flats,<br /><em className="italic text-gold">independently owned.</em>
+      </>
+    ),
+    image: BD_ALIF_BREEZE,
   },
 };
 
 function ProjectsPageContent() {
+  const { language } = useLanguage();
   const searchParams = useSearchParams();
   const initialType = (searchParams.get("type") as ListingType | null) ?? "Buy";
   const defaultFilters: Filters = {
@@ -74,16 +95,37 @@ function ProjectsPageContent() {
 
   return (
     <main>
-      <div className="bg-moss-dark">
-        <Nav onEnquire={() => setEnquiryOpen(true)} />
-        <Container className="pt-[125px] pb-[64px] md:pt-[164px] md:pb-[80px]">
-          <Reveal>
-            <Kicker className="text-[#dce5d6]">{heading.kicker}</Kicker>
-            <h1 className="font-serif font-medium text-white text-[44px] md:text-[60px] leading-[1.02] tracking-[-.04em] max-w-[720px]">
-              {heading.title}
-            </h1>
-          </Reveal>
-        </Container>
+      <div className="relative bg-moss-dark overflow-hidden">
+        <AnimatePresence mode="sync">
+          <motion.img
+            key={filters.listingType}
+            src={heading.image}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+          />
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,26,17,.82)_0%,rgba(13,26,17,.9)_100%)]" />
+        <div className="relative z-10">
+          <Nav onEnquire={() => setEnquiryOpen(true)} />
+          <Container className="pt-[125px] pb-[64px] md:pt-[164px] md:pb-[80px]">
+            <Reveal>
+              <Kicker className="text-[#dce5d6]">{heading.kicker}</Kicker>
+              <h1
+                className={
+                  language === "bn"
+                    ? "font-bengali-serif font-extrabold text-white text-[42px] md:text-[58px] leading-[1.35] max-w-[760px]"
+                    : "font-serif font-bold text-white text-[44px] md:text-[60px] leading-[1.02] tracking-[-.04em] max-w-[720px]"
+                }
+              >
+                {language === "bn" ? heading.titleBn : heading.titleEn}
+              </h1>
+            </Reveal>
+          </Container>
+        </div>
       </div>
 
       <Container className="py-[48px] md:py-[64px]">

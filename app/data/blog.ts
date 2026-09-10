@@ -13,6 +13,7 @@ export type BlogPost = {
   category: string;
   readTime: string;
   title: string;
+  titleBn: string;
   excerpt: string;
   image: string;
   date: string;
@@ -26,6 +27,7 @@ export const blogPosts: BlogPost[] = [
     category: "Sustainability",
     readTime: "8 min read",
     title: "How sustainable materials are changing residential builds in Dhaka",
+    titleBn: "ঢাকার আবাসন নির্মাণে টেকসই উপকরণের ব্যবহার যেভাবে বদলে দিচ্ছে",
     excerpt:
       "From fly-ash bricks to solar-ready rooftops, a look at the material choices driving down the environmental cost of new apartments.",
     image: BD_SUSTAINABLE_AERIAL,
@@ -43,6 +45,7 @@ export const blogPosts: BlogPost[] = [
     category: "Milestone",
     readTime: "5 min read",
     title: "Greenleaf-6 reaches structural completion",
+    titleBn: "Greenleaf-6-এর কাঠামোগত নির্মাণ সম্পন্ন",
     excerpt:
       "The Matuail development has topped out ahead of schedule, with finishing work now underway across all six floors.",
     image: BD_CONCORD_AJIMPUR,
@@ -59,6 +62,7 @@ export const blogPosts: BlogPost[] = [
     category: "Investment",
     readTime: "4 min read",
     title: "A guide to investing in Bangladeshi real estate from abroad",
+    titleBn: "প্রবাস থেকে বাংলাদেশের রিয়েল এস্টেটে বিনিয়োগের নির্দেশিকা",
     excerpt:
       "What non-resident Bangladeshis need to know about remittance channels, documentation, and property management before buying from overseas.",
     image: BD_ALIF_BREEZE,
@@ -76,6 +80,7 @@ export const blogPosts: BlogPost[] = [
     category: "Homeowner story",
     readTime: "6 min read",
     title: "Newtown Residences, one year after handover",
+    titleBn: "Newtown Residences: হস্তান্তরের এক বছর পর",
     excerpt:
       "We checked back in with three families who moved in during the first wave of handovers to see what's held up — and what they'd tell a new buyer.",
     image: BD_MUGDA_TERRACED,
@@ -92,6 +97,7 @@ export const blogPosts: BlogPost[] = [
     category: "Market insight",
     readTime: "5 min read",
     title: "Why Grade-A commercial demand in Gulshan keeps climbing",
+    titleBn: "গুলশানে গ্রেড-এ বাণিজ্যিক চাহিদা কেন ক্রমাগত বাড়ছে",
     excerpt:
       "A look at the office vacancy data behind our decision to build the Green Estate Business Center, and what it means for tenants weighing a move.",
     image: BD_DHAKA_DIAMOND,
@@ -108,6 +114,7 @@ export const blogPosts: BlogPost[] = [
     category: "Buyer's guide",
     readTime: "6 min read",
     title: "Buy, rent, or wait? A framework for first-time Dhaka buyers",
+    titleBn: "কিনবেন, ভাড়া নেবেন, নাকি অপেক্ষা করবেন? ঢাকায় প্রথমবার ফ্ল্যাট কেনার নির্দেশিকা",
     excerpt:
       "A practical way to think through the buy-versus-rent decision in Dhaka's market, beyond just comparing a monthly EMI to a monthly rent.",
     image: BD_HABIBULLAH_STREET,

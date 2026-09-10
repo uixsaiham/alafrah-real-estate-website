@@ -16,6 +16,8 @@ export type ListingType = "Buy" | "Rent" | "Sell";
 export type Project = {
   slug: string;
   name: string;
+  /** Bangla transliteration of the project name, used for card titles */
+  nameBn: string;
   location: string;
   status: ProjectStatus;
   type: ProjectType;
@@ -37,6 +39,7 @@ export const projects: Project[] = [
   {
     slug: "greenleaf-6",
     name: "Greenleaf-6",
+    nameBn: "গ্রিনলিফ-৬",
     location: "Matuail, Dhaka",
     status: "Under construction",
     type: "Residential",
@@ -57,6 +60,7 @@ export const projects: Project[] = [
   {
     slug: "newtown-residences",
     name: "Newtown Residences",
+    nameBn: "নিউটাউন রেসিডেন্সেস",
     location: "Newtown, Dhaka",
     status: "Ready to move",
     type: "Residential",
@@ -77,6 +81,7 @@ export const projects: Project[] = [
   {
     slug: "green-estate-business-center",
     name: "Green Estate Business Center",
+    nameBn: "গ্রিন এস্টেট বিজনেস সেন্টার",
     location: "Gulshan, Dhaka",
     status: "Ready to move",
     type: "Commercial",
@@ -97,6 +102,7 @@ export const projects: Project[] = [
   {
     slug: "huntsville-commons",
     name: "Huntsville Commons",
+    nameBn: "হান্টসভিল কমন্স",
     location: "Huntsville, AL, USA",
     status: "Under construction",
     type: "Mixed-use",
@@ -123,6 +129,7 @@ export const projects: Project[] = [
   {
     slug: "flat-3c-newtown-residences",
     name: "Flat 3C, Newtown Residences",
+    nameBn: "ফ্ল্যাট ৩সি, নিউটাউন রেসিডেন্সেস",
     location: "Newtown, Dhaka",
     status: "Ready to move",
     type: "Residential",
@@ -143,6 +150,7 @@ export const projects: Project[] = [
   {
     slug: "bashundhara-ra-apartment",
     name: "Bashundhara R/A Apartment",
+    nameBn: "বসুন্ধরা আর/এ অ্যাপার্টমেন্ট",
     location: "Bashundhara R/A, Dhaka",
     status: "Ready to move",
     type: "Residential",
@@ -163,6 +171,7 @@ export const projects: Project[] = [
   {
     slug: "dhanmondi-lakeview-flat",
     name: "Dhanmondi Lakeview Flat",
+    nameBn: "ধানমন্ডি লেকভিউ ফ্ল্যাট",
     location: "Dhanmondi, Dhaka",
     status: "Ready to move",
     type: "Residential",
@@ -185,6 +194,7 @@ export const projects: Project[] = [
   {
     slug: "flat-5a-newtown-residences",
     name: "Flat 5A, Newtown Residences",
+    nameBn: "ফ্ল্যাট ৫এ, নিউটাউন রেসিডেন্সেস",
     location: "Newtown, Dhaka",
     status: "Ready to move",
     type: "Residential",
@@ -205,6 +215,7 @@ export const projects: Project[] = [
   {
     slug: "gulshan-serviced-apartment",
     name: "Gulshan Serviced Apartment",
+    nameBn: "গুলশান সার্ভিসড অ্যাপার্টমেন্ট",
     location: "Gulshan, Dhaka",
     status: "Ready to move",
     type: "Residential",
@@ -225,6 +236,7 @@ export const projects: Project[] = [
   {
     slug: "banani-family-apartment",
     name: "Banani Family Apartment",
+    nameBn: "বনানী ফ্যামিলি অ্যাপার্টমেন্ট",
     location: "Banani, Dhaka",
     status: "Ready to move",
     type: "Residential",
@@ -247,6 +259,7 @@ export const projects: Project[] = [
   {
     slug: "uttara-skyline",
     name: "Uttara Skyline",
+    nameBn: "উত্তরা স্কাইলাইন",
     location: "Uttara, Dhaka",
     status: "Under construction",
     type: "Residential",
@@ -267,6 +280,7 @@ export const projects: Project[] = [
   {
     slug: "mirpur-garden-court",
     name: "Mirpur Garden Court",
+    nameBn: "মিরপুর গার্ডেন কোর্ট",
     location: "Mirpur, Dhaka",
     status: "Ready to move",
     type: "Residential",
@@ -289,6 +303,7 @@ export const projects: Project[] = [
   {
     slug: "mirpur-family-flat",
     name: "Mirpur Family Flat",
+    nameBn: "মিরপুর ফ্যামিলি ফ্ল্যাট",
     location: "Mirpur, Dhaka",
     status: "Ready to move",
     type: "Residential",
@@ -309,6 +324,7 @@ export const projects: Project[] = [
   {
     slug: "banani-commercial-space",
     name: "Banani Commercial Space",
+    nameBn: "বনানী কমার্শিয়াল স্পেস",
     location: "Banani, Dhaka",
     status: "Ready to move",
     type: "Commercial",
@@ -329,6 +345,7 @@ export const projects: Project[] = [
   {
     slug: "uttara-corner-apartment",
     name: "Uttara Corner Apartment",
+    nameBn: "উত্তরা কর্নার অ্যাপার্টমেন্ট",
     location: "Uttara, Dhaka",
     status: "Ready to move",
     type: "Residential",
@@ -351,6 +368,7 @@ export const projects: Project[] = [
   {
     slug: "dhanmondi-studio-apartment",
     name: "Dhanmondi Studio Apartment",
+    nameBn: "ধানমন্ডি স্টুডিও অ্যাপার্টমেন্ট",
     location: "Dhanmondi, Dhaka",
     status: "Ready to move",
     type: "Residential",
@@ -371,6 +389,7 @@ export const projects: Project[] = [
   {
     slug: "uttara-executive-flat",
     name: "Uttara Executive Flat",
+    nameBn: "উত্তরা এক্সিকিউটিভ ফ্ল্যাট",
     location: "Uttara, Dhaka",
     status: "Ready to move",
     type: "Residential",
@@ -391,6 +410,7 @@ export const projects: Project[] = [
   {
     slug: "gulshan-office-suite",
     name: "Gulshan Office Suite",
+    nameBn: "গুলশান অফিস স্যুট",
     location: "Gulshan, Dhaka",
     status: "Ready to move",
     type: "Commercial",

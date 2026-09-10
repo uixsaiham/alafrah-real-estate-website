@@ -1,21 +1,30 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@600;700;800;900&display=swap');
 
 @theme {
-  /* Brand palette — luxury/editorial, warm neutrals with a moss-green accent */
-  --color-ink: #24312b;
-  --color-muted: #6e766f;
+  /* Brand palette — sampled directly from the Green Estate logo's dominant green (low-blue, leaf-green
+     hue, not a teal/gray moss) and the icon's terracotta-orange roof as the complementary accent */
+  --color-ink: #17241b;
+  --color-muted: #5b6b5c;
   --color-cream: #f4f1e9;
   --color-paper: #fbfaf6;
-  --color-sage: #9aa891;
-  --color-moss: #596b5b;
-  --color-moss-dark: #29382f;
-  --color-line: rgba(36, 49, 43, 0.18);
-  --color-rust: #bc695a;
+  --color-sage: #4cc257;
+  --color-moss: #1d7d26;
+  --color-moss-dark: #0d3814;
+  --color-line: rgba(23, 36, 27, 0.18);
+  --color-rust: #e2860f;
+  /* Warm accent used on emphasized headline text — bright gold reads on dark hero/panel
+     backgrounds, the deeper amber keeps enough contrast on cream/paper light sections */
+  --color-gold: #f0b429;
+  --color-gold-dark: #b8860b;
 
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "DM Mono", ui-monospace, monospace;
+  --font-bengali: "Noto Sans Bengali", "DM Sans", ui-sans-serif, sans-serif;
+  /* Elegant serif display face for big Bangla titles — mirrors Playfair Display's editorial weight
+     and pairs with it directly; Noto Sans Bengali stays the workhorse for small UI text (footer, captions, body) */
+  --font-bengali-serif: "Noto Serif Bengali", "Noto Sans Bengali", serif;
 }
 
 html {

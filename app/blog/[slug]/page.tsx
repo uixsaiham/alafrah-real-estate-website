@@ -10,8 +10,10 @@ import Footer from "../../components/Footer";
 import Nav from "../../components/Nav";
 import Reveal from "../../components/Reveal";
 import { blogPosts, getBlogPostBySlug } from "../../data/blog";
+import { useLanguage } from "../../context/LanguageContext";
 
 export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { language } = useLanguage();
   const { slug } = use(params);
   const post = getBlogPostBySlug(slug);
   const [enquiryOpen, setEnquiryOpen] = useState(false);
@@ -52,8 +54,14 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
           <p className="font-mono text-[10px] uppercase tracking-[.07em] text-moss mb-4">
             {post.category} · {post.readTime}
           </p>
-          <h1 className="font-serif font-medium text-[36px] md:text-[52px] leading-[1.05] tracking-[-.03em] max-w-[820px] mb-6">
-            {post.title}
+          <h1
+            className={
+              language === "bn"
+                ? "font-bengali-serif font-extrabold text-[34px] md:text-[48px] leading-[1.4] max-w-[820px] mb-6"
+                : "font-serif font-bold text-[36px] md:text-[52px] leading-[1.05] tracking-[-.03em] max-w-[820px] mb-6"
+            }
+          >
+            {language === "bn" ? post.titleBn : post.title}
           </h1>
           <div className="flex items-center gap-3 text-muted text-[13px]">
             <span>{post.author}</span>
@@ -84,7 +92,7 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
       {more.length > 0 && (
         <Container className="pb-[84px] md:pb-[130px]">
           <Reveal>
-            <h2 className="font-serif font-medium text-[32px] mb-8">More from the journal</h2>
+            <h2 className="font-serif font-bold text-[32px] mb-8">More from the journal</h2>
           </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-[22px]">
             {more.map((p, index) => (

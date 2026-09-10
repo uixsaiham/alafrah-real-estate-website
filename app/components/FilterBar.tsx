@@ -3,6 +3,8 @@
 import { Search } from "lucide-react";
 import type { ListingType, ProjectStatus, ProjectType } from "../data/projects";
 
+const EASE = "ease-[cubic-bezier(.22,1,.36,1)]";
+
 export type Filters = {
   listingType: ListingType;
   status: ProjectStatus | "All";
@@ -32,10 +34,10 @@ function Toggle<T extends string | number>({
           key={option}
           type="button"
           onClick={() => onChange(option)}
-          className={`px-[13px] py-[9px] border font-mono text-[11px] uppercase tracking-[.05em] transition-colors ${
+          className={`px-[13px] py-[9px] border font-mono text-[11px] uppercase tracking-[.05em] transition-[background-color,border-color,color,transform] duration-200 ${EASE} ${
             value === option
               ? "bg-moss text-white border-moss"
-              : "bg-transparent text-ink border-line hover:border-moss"
+              : "bg-transparent text-ink border-line hover:border-moss hover:-translate-y-[2px]"
           }`}
         >
           {option}
@@ -60,7 +62,7 @@ export default function FilterBar({
             key={option}
             type="button"
             onClick={() => onChange({ ...filters, listingType: option, status: "All" })}
-            className={`flex-1 py-4 font-serif text-[17px] transition-colors ${
+            className={`flex-1 py-4 font-serif text-[17px] transition-colors duration-300 ${EASE} ${
               filters.listingType === option ? "bg-moss text-white" : "bg-transparent text-ink hover:bg-paper"
             }`}
           >

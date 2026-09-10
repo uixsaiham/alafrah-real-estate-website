@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import type { Project } from "../data/projects";
 
@@ -114,10 +115,16 @@ export default function EmiCalculator({ project }: { project: Project }) {
 
       <div className="bg-paper p-6 border border-line">
         <p className="font-mono text-[10px] uppercase tracking-[.07em] text-moss mb-2">Estimated monthly payment</p>
-        <p className="font-serif text-[38px] md:text-[44px] leading-none mb-6">
+        <motion.p
+          key={Math.round(emi)}
+          initial={{ opacity: 0.4, y: 3 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          className="font-serif text-[38px] md:text-[44px] leading-none mb-6"
+        >
           {formatCurrency(emi, project.currency)}
           <span className="text-[14px] font-sans text-muted"> / month</span>
-        </p>
+        </motion.p>
         <div className="grid grid-cols-3 gap-4 pt-5 border-t border-line text-[13px]">
           <div>
             <div className="text-muted mb-1">Loan amount</div>
