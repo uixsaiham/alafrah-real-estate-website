@@ -1,23 +1,24 @@
-// Real Dhaka / Bangladesh architecture photography sourced from Wikimedia Commons
-// (all files are freely licensed for reuse; see each file's Commons page for attribution).
+// Clean, modern architecture photography sourced from Unsplash (free to use under the
+// Unsplash License, no attribution required). Swapped in for the earlier Wikimedia Dhaka
+// street photography, which included visible overhead cabling and other street clutter.
 export const BD_ALIF_BREEZE =
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Alif_Breeze.jpg/1920px-Alif_Breeze.jpg";
+  "https://images.unsplash.com/photo-1780584448026-262cc9f960df?auto=format&fit=crop&w=1920&q=85";
 export const BD_BANANI_MODEL_TOWN =
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/In_Banani_Model_Town_02.jpg/1920px-In_Banani_Model_Town_02.jpg";
+  "https://images.unsplash.com/photo-1759162788764-f40075c8857f?auto=format&fit=crop&w=1920&q=85";
 export const BD_MUGDA_TERRACED =
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/Modern_residential_building_with_terraced_rooftops_at_Mugda_in_Dhaka.jpg/1920px-Modern_residential_building_with_terraced_rooftops_at_Mugda_in_Dhaka.jpg";
+  "https://images.unsplash.com/photo-1758193431351-68538bf55ec3?auto=format&fit=crop&w=1920&q=85";
 export const BD_DHAKA_DIAMOND =
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/DHAKA_DIAMOND_building%2C_gulshan_2.jpg/1920px-DHAKA_DIAMOND_building%2C_gulshan_2.jpg";
+  "https://images.unsplash.com/photo-1749831574824-cd632c462a52?auto=format&fit=crop&w=1920&q=85";
 export const BD_CONCORD_AJIMPUR =
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Concord_Apartment_Buildings%2C_Ajimpur%2C_Dhaka%2C_Bangladesh.jpg/1920px-Concord_Apartment_Buildings%2C_Ajimpur%2C_Dhaka%2C_Bangladesh.jpg";
+  "https://images.unsplash.com/photo-1761535315385-219131cb53e6?auto=format&fit=crop&w=1920&q=85";
 export const BD_HABIBULLAH_STREET =
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Residential_buildings%2C_taken_from_Habibullah_Bahar_College%2C_Dhaka.jpg/1920px-Residential_buildings%2C_taken_from_Habibullah_Bahar_College%2C_Dhaka.jpg";
+  "https://images.unsplash.com/photo-1781136194181-aea44724c905?auto=format&fit=crop&w=1920&q=85";
 export const BD_SUSTAINABLE_AERIAL =
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Sustainable_architecture_in_city_Bangladesh.jpg/1920px-Sustainable_architecture_in_city_Bangladesh.jpg";
+  "https://images.unsplash.com/photo-1731370963535-aa6e57ed40f6?auto=format&fit=crop&w=1920&q=85";
 export const BD_GREEN_NEST =
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Green_nest_Dhaka%2CBangladesh.jpg/1920px-Green_nest_Dhaka%2CBangladesh.jpg";
+  "https://images.unsplash.com/photo-1621294015009-b26e7d266602?auto=format&fit=crop&w=1920&q=85";
 export const BD_DHANMONDI_VIEW =
-  "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Building_View_of_Dhaka_City_near_Dhanmondi.jpg/1920px-Building_View_of_Dhaka_City_near_Dhanmondi.jpg";
+  "https://images.unsplash.com/photo-1768230130990-6b4fe57778ce?auto=format&fit=crop&w=1920&q=85";
 
 // Generic, non-region-specific interior shot used as gallery filler.
 export const INTERIOR_LIVING_ROOM =

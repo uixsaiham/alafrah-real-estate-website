@@ -67,11 +67,11 @@ export default function Footer() {
       <Container className="relative grid grid-cols-1 md:grid-cols-[1.3fr_1fr_1fr_1.2fr] gap-10 md:gap-8 pb-[55px] md:pb-[64px]">
         <Reveal>
           <a href="/" aria-label="Green Estate home" className="group inline-flex items-center mb-5">
-            <span
-              className={`inline-flex items-center bg-white px-[10px] py-[6px] transition-transform duration-300 ${EASE} group-hover:scale-[1.05]`}
-            >
-              <img src="/logo.jpg" alt="Green Estate" className="h-[22px] w-auto block" />
-            </span>
+            <img
+              src="/logo.png"
+              alt="Green Estate"
+              className={`h-[26px] w-auto block transition-transform duration-300 ${EASE} group-hover:scale-[1.05]`}
+            />
           </a>
           {language === "bn" ? (
             <p className="font-bengali text-[13px] leading-[1.6] text-[#e9e8df]/65 max-w-[280px] mb-6">

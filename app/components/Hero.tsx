@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, ChevronDown, Home, KeyRound, MoveRight, Tag } from "lucide-react";
+import { ArrowUpRight, ChevronDown, MoveRight } from "lucide-react";
 import Container from "./Container";
 import CountUp from "./CountUp";
 import HeroSlider from "./HeroSlider";
@@ -77,40 +77,16 @@ export default function Hero({ onEnquire }: { onEnquire: () => void }) {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55, ease: EASE }}
-              className="max-w-[440px] mb-[18px] text-[15px] leading-[1.6] text-white/86"
+              className="max-w-[440px] mb-[40px] text-[15px] leading-[1.6] text-white/86"
             >
               For over a decade we&apos;ve shaped homes and workspaces across
               Bangladesh and abroad — where sustainable design meets uncompromising craft.
             </motion.p>
+            {/* Buy/Rent/Sell quick-filter removed for now — planned to come back as a redesigned feature */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.65, ease: EASE }}
-              className="flex w-full max-w-[420px] bg-white/95 backdrop-blur-md text-moss-dark shadow-[0_18px_50px_rgba(18,32,23,.25)] mb-3 border border-white/40"
-            >
-              <a
-                href="/projects?type=Buy"
-                className="flex-1 flex items-center justify-center gap-[7px] py-[11px] text-[13px] font-medium bg-moss text-white transition-colors"
-              >
-                <Home size={14} strokeWidth={1.8} /> Buy
-              </a>
-              <a
-                href="/projects?type=Rent"
-                className="flex-1 flex items-center justify-center gap-[7px] py-[11px] text-[13px] font-medium border-l border-line/50 transition-colors hover:bg-cream"
-              >
-                <KeyRound size={14} strokeWidth={1.8} /> Rent
-              </a>
-              <a
-                href="/projects?type=Sell"
-                className="flex-1 flex items-center justify-center gap-[7px] py-[11px] text-[13px] font-medium border-l border-line/50 transition-colors hover:bg-cream"
-              >
-                <Tag size={14} strokeWidth={1.8} /> Sell
-              </a>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.75, ease: EASE }}
               className="flex flex-col sm:flex-row gap-3 sm:items-center"
             >
               <a

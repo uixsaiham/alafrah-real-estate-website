@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Anek+Bangla:wght@600;700;800&display=swap');
 
 @theme {
   /* Brand palette — sampled directly from the Green Estate logo's dominant green (low-blue, leaf-green
@@ -22,9 +22,9 @@
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "DM Mono", ui-monospace, monospace;
   --font-bengali: "Noto Sans Bengali", "DM Sans", ui-sans-serif, sans-serif;
-  /* Elegant serif display face for big Bangla titles — mirrors Playfair Display's editorial weight
-     and pairs with it directly; Noto Sans Bengali stays the workhorse for small UI text (footer, captions, body) */
-  --font-bengali-serif: "Noto Serif Bengali", "Noto Sans Bengali", serif;
+  /* Clean, modern geometric display face for big Bangla titles — Noto Sans Bengali stays the
+     workhorse for small UI text (footer, captions, body) */
+  --font-bengali-serif: "Anek Bangla", "Noto Sans Bengali", sans-serif;
 }
 
 html {

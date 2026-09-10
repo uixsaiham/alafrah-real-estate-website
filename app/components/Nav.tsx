@@ -41,7 +41,6 @@ export default function Nav({
 
   const textColor = onDark ? "text-white" : "text-ink";
   const mutedColor = onDark ? "text-white/82" : "text-muted";
-  const borderColor = onDark ? "border-white/28" : "border-line";
   const outlineBorder = onDark ? "border-white/55" : "border-ink/55";
 
   return (
@@ -50,37 +49,49 @@ export default function Nav({
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: EASE }}
-        className={`fixed top-0 inset-x-0 z-50 transition-[background-color,box-shadow] duration-300 ${
-          solid ? "bg-moss-dark/95 backdrop-blur-md shadow-[0_2px_24px_rgba(0,0,0,.18)]" : "bg-transparent"
+        className={`fixed top-0 inset-x-0 z-50 backdrop-blur-sm transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
+          solid ? "bg-moss-dark/95 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,.2)]" : "bg-white/[0.05]"
         }`}
       >
-        <Container>
-        <nav
-          className={`flex h-[75px] md:h-[94px] items-center justify-between border-b transition-colors duration-300 ${
-            solid ? "border-transparent" : borderColor
+        {/* Soft glossy highlight along the top of the bar */}
+        <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/[0.1] to-transparent pointer-events-none" />
+        {/* Scrim so nav content stays legible over busy/bright hero photos even before the solid state kicks in */}
+        {!solid && (
+          <div className="absolute inset-0 h-[130px] bg-[linear-gradient(180deg,rgba(9,18,12,.58)_0%,rgba(9,18,12,.24)_55%,transparent_100%)] pointer-events-none" />
+        )}
+        {/* Hairline glass edge at the bottom of the bar */}
+        <div
+          className={`absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent to-transparent pointer-events-none ${
+            solid ? "via-white/14" : "via-white/25"
           }`}
-        >
+        />
+        <Container className="relative z-10">
+        <nav className="flex h-[75px] md:h-[94px] items-center justify-between">
           <a href="/" aria-label="Green Estate home" className="group flex items-center">
-            <span
-              className={`inline-flex items-center bg-white px-[10px] py-[6px] shadow-[0_2px_10px_rgba(0,0,0,.15)] transition-transform duration-300 ${EASE_CLASS} group-hover:scale-[1.05]`}
-            >
-              <img src="/logo.jpg" alt="Green Estate" className="h-[24px] md:h-[28px] w-auto block" />
-            </span>
+            <img
+              src="/logo.png"
+              alt="Green Estate"
+              className={`h-[30px] md:h-[36px] w-auto block drop-shadow-[0_2px_10px_rgba(0,0,0,.35)] transition-transform duration-300 ${EASE_CLASS} group-hover:scale-[1.05]`}
+            />
           </a>
-          <div className={`hidden md:flex gap-[34px] ml-[90px] text-[13px] ${mutedColor}`}>
+          <div className="hidden md:flex gap-[28px] ml-[64px] text-[13px] font-medium">
             {links.map((link) => {
               const active = pathname === link.href || pathname?.startsWith(`${link.href}/`);
               return (
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`group relative py-1 ${onDark ? "hover:text-white" : "hover:text-ink"} ${
-                    active ? (onDark ? "text-white" : "text-ink") : ""
+                  className={`group relative py-1 transition-colors duration-200 ${
+                    active
+                      ? onDark
+                        ? "text-white"
+                        : "text-ink"
+                      : `${mutedColor} ${onDark ? "hover:text-white" : "hover:text-ink"}`
                   }`}
                 >
                   {link.label}
                   <span
-                    className={`pointer-events-none absolute left-0 -bottom-[3px] h-px w-full origin-left bg-current transition-transform duration-300 ${EASE_CLASS} ${
+                    className={`pointer-events-none absolute left-0 -bottom-[3px] h-[2px] w-full origin-left bg-gold transition-transform duration-300 ${EASE_CLASS} ${
                       active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                     }`}
                   />
@@ -88,17 +99,21 @@ export default function Nav({
               );
             })}
           </div>
-          <div className={`flex items-center gap-[22px] text-[13px] ${textColor}`}>
-            <a href="tel:+8801711030749" className="hidden md:flex items-center gap-2">
-              <Phone size={14} /> 01711-030749
+          <div className={`flex items-center gap-[16px] text-[13px] ${textColor}`}>
+            <a
+              href="tel:+8801711030749"
+              className={`hidden lg:flex items-center gap-2 pr-[16px] border-r ${onDark ? "border-white/15" : "border-line"} ${onDark ? "text-white/55" : "text-muted"} transition-colors duration-200 ${onDark ? "hover:text-white" : "hover:text-ink"}`}
+            >
+              <Phone size={13} /> 01711-030749
             </a>
             <button
-              className={`group hidden md:flex gap-[10px] items-center bg-transparent px-[15px] py-[11px] border transition-colors duration-200 ${onDark ? "hover:bg-white/10" : "hover:bg-ink/5"} ${outlineBorder}`}
+              className="group hidden md:flex gap-[9px] items-center bg-gold text-moss-dark px-[22px] py-[13px] text-[13.5px] font-bold tracking-[.01em] shadow-[0_10px_24px_rgba(240,180,41,.4)] transition-all duration-200 hover:brightness-[1.08] hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(240,180,41,.5)]"
               onClick={onEnquire}
             >
-              Book a visit{" "}
+              Book a Visit{" "}
               <ArrowUpRight
-                size={15}
+                size={16}
+                strokeWidth={2.4}
                 className={`transition-transform duration-300 ${EASE_CLASS} group-hover:translate-x-1 group-hover:-translate-y-0.5`}
               />
             </button>
@@ -150,7 +165,7 @@ export default function Nav({
               ))}
             </div>
             <motion.button
-              className="flex gap-[10px] items-center bg-white text-moss-dark px-[18px] py-[13px] mt-10 text-[13px]"
+              className="flex gap-[10px] items-center bg-gold text-moss-dark px-[18px] py-[13px] mt-10 text-[13px] font-semibold shadow-[0_8px_20px_rgba(240,180,41,.35)]"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 + links.length * 0.05, ease: EASE }}
@@ -159,7 +174,7 @@ export default function Nav({
                 onEnquire();
               }}
             >
-              Book a visit <ArrowUpRight size={15} />
+              Book a Visit <ArrowUpRight size={15} />
             </motion.button>
             <motion.a
               href="tel:+8801711030749"
