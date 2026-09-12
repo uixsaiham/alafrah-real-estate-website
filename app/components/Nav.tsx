@@ -49,20 +49,18 @@ export default function Nav({
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, ease: EASE }}
-        className={`fixed top-0 inset-x-0 z-50 backdrop-blur-sm transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
-          solid ? "bg-moss-dark/95 backdrop-blur-md shadow-[0_2px_20px_rgba(0,0,0,.2)]" : "bg-white/[0.05]"
+        className={`fixed top-0 inset-x-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-300 ${
+          solid ? "bg-moss-dark/95 backdrop-blur-sm shadow-[0_2px_16px_rgba(0,0,0,.16)]" : "bg-transparent"
         }`}
       >
-        {/* Soft glossy highlight along the top of the bar */}
-        <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/[0.1] to-transparent pointer-events-none" />
         {/* Scrim so nav content stays legible over busy/bright hero photos even before the solid state kicks in */}
         {!solid && (
           <div className="absolute inset-0 h-[130px] bg-[linear-gradient(180deg,rgba(9,18,12,.58)_0%,rgba(9,18,12,.24)_55%,transparent_100%)] pointer-events-none" />
         )}
-        {/* Hairline glass edge at the bottom of the bar */}
+        {/* Hairline edge at the bottom of the bar */}
         <div
           className={`absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent to-transparent pointer-events-none ${
-            solid ? "via-white/14" : "via-white/25"
+            solid ? "via-white/10" : "via-white/18"
           }`}
         />
         <Container className="relative z-10">
@@ -74,56 +72,74 @@ export default function Nav({
               className={`h-[30px] md:h-[36px] w-auto block drop-shadow-[0_2px_10px_rgba(0,0,0,.35)] transition-transform duration-300 ${EASE_CLASS} group-hover:scale-[1.05]`}
             />
           </a>
-          <div className="hidden md:flex gap-[28px] ml-[64px] text-[13px] font-medium">
-            {links.map((link) => {
-              const active = pathname === link.href || pathname?.startsWith(`${link.href}/`);
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`group relative py-1 transition-colors duration-200 ${
-                    active
-                      ? onDark
-                        ? "text-white"
-                        : "text-ink"
-                      : `${mutedColor} ${onDark ? "hover:text-white" : "hover:text-ink"}`
-                  }`}
-                >
-                  {link.label}
-                  <span
-                    className={`pointer-events-none absolute left-0 -bottom-[3px] h-[2px] w-full origin-left bg-gold transition-transform duration-300 ${EASE_CLASS} ${
-                      active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+          <div className="flex items-center gap-[46px]">
+            <div className="hidden md:flex gap-[28px] text-[13px] font-medium">
+              {links.map((link) => {
+                const active = pathname === link.href || pathname?.startsWith(`${link.href}/`);
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className={`group relative py-1 transition-colors duration-200 ${
+                      active
+                        ? onDark
+                          ? "text-white"
+                          : "text-ink"
+                        : `${mutedColor} ${onDark ? "hover:text-white" : "hover:text-ink"}`
                     }`}
+                  >
+                    {link.label}
+                    <span
+                      className={`pointer-events-none absolute left-0 -bottom-[3px] h-[2px] w-full origin-left bg-gold transition-transform duration-300 ${EASE_CLASS} ${
+                        active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                    />
+                  </a>
+                );
+              })}
+            </div>
+            <div className={`flex items-center gap-[16px] text-[13px] ${textColor}`}>
+              <a
+                href="tel:+8801711030749"
+                className={`hidden lg:flex items-center gap-[9px] pl-[16px] pr-[18px] py-[13px] border transition-all duration-300 ${
+                  onDark
+                    ? "border-white/30 text-white/85 hover:border-white/60 hover:bg-white/10 hover:text-white"
+                    : "border-ink/25 text-muted hover:border-ink/45 hover:bg-ink/5 hover:text-ink"
+                }`}
+              >
+                <span className="relative flex items-center justify-center w-[16px] h-[16px] shrink-0">
+                  <span
+                    className={`absolute inset-0 rounded-full animate-ping ${onDark ? "bg-gold/40" : "bg-moss/30"}`}
                   />
-                </a>
-              );
-            })}
-          </div>
-          <div className={`flex items-center gap-[16px] text-[13px] ${textColor}`}>
-            <a
-              href="tel:+8801711030749"
-              className={`hidden lg:flex items-center gap-2 pr-[16px] border-r ${onDark ? "border-white/15" : "border-line"} ${onDark ? "text-white/55" : "text-muted"} transition-colors duration-200 ${onDark ? "hover:text-white" : "hover:text-ink"}`}
-            >
-              <Phone size={13} /> 01711-030749
-            </a>
-            <button
-              className="group hidden md:flex gap-[9px] items-center bg-gold text-moss-dark px-[22px] py-[13px] text-[13.5px] font-bold tracking-[.01em] shadow-[0_10px_24px_rgba(240,180,41,.4)] transition-all duration-200 hover:brightness-[1.08] hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(240,180,41,.5)]"
-              onClick={onEnquire}
-            >
-              Book a Visit{" "}
-              <ArrowUpRight
-                size={16}
-                strokeWidth={2.4}
-                className={`transition-transform duration-300 ${EASE_CLASS} group-hover:translate-x-1 group-hover:-translate-y-0.5`}
-              />
-            </button>
-            <button
-              className="md:hidden border-0 bg-transparent"
-              aria-label="Open navigation"
-              onClick={() => setMobileOpen(true)}
-            >
-              <Menu size={19} />
-            </button>
+                  <motion.span
+                    className="relative flex"
+                    animate={{ rotate: [0, -18, 16, -14, 10, 0] }}
+                    transition={{ duration: 1.1, repeat: Infinity, repeatDelay: 2.4, ease: "easeInOut" }}
+                  >
+                    <Phone size={13} fill="currentColor" />
+                  </motion.span>
+                </span>
+                01711-030749
+              </a>
+              <button
+                className="group hidden md:flex gap-[9px] items-center bg-gold text-moss-dark px-[22px] py-[13px] text-[13.5px] font-bold tracking-[.01em] shadow-[0_10px_24px_rgba(240,180,41,.4)] transition-all duration-200 hover:brightness-[1.08] hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(240,180,41,.5)]"
+                onClick={onEnquire}
+              >
+                Book a Visit{" "}
+                <ArrowUpRight
+                  size={16}
+                  strokeWidth={2.4}
+                  className={`transition-transform duration-300 ${EASE_CLASS} group-hover:translate-x-1 group-hover:-translate-y-0.5`}
+                />
+              </button>
+              <button
+                className="md:hidden border-0 bg-transparent"
+                aria-label="Open navigation"
+                onClick={() => setMobileOpen(true)}
+              >
+                <Menu size={19} />
+              </button>
+            </div>
           </div>
         </nav>
         </Container>
@@ -139,9 +155,7 @@ export default function Nav({
             className="fixed inset-0 z-50 bg-moss-dark text-white p-6 md:hidden"
           >
             <div className="flex justify-between items-center h-[75px]">
-              <span className="inline-flex items-center bg-white px-[10px] py-[6px]">
-                <img src="/logo.jpg" alt="Green Estate" className="h-[24px] w-auto block" />
-              </span>
+              <img src="/logo.png" alt="Green Estate" className="h-[28px] w-auto block" />
               <motion.button
                 aria-label="Close navigation"
                 onClick={() => setMobileOpen(false)}

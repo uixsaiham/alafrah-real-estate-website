@@ -42,10 +42,10 @@ export default function Team() {
   return (
     <Section id="team" className="py-[84px] md:py-[130px]">
       <Container>
-        <Reveal className="max-w-[560px] mb-[52px] md:mb-[64px]">
+        <Reveal className={`${language === "bn" ? "max-w-[720px]" : "max-w-[560px]"} mb-[52px] md:mb-[64px]`}>
           <Kicker>Leadership</Kicker>
           {language === "bn" ? (
-            <h2 className="font-bengali-serif font-extrabold text-[42px] md:text-[52px] leading-[1.35]">
+            <h2 className="font-bengali-serif font-extrabold text-[20px] sm:text-[34px] lg:text-[52px] leading-[1.35] whitespace-nowrap">
               দক্ষ স্থপতি ও প্রকৌশলীদের নিয়ে<br /><em className="not-italic text-gold-dark">গড়া আমাদের পরিবার।</em>
             </h2>
           ) : (
