@@ -8,6 +8,7 @@ import Container from "./Container";
 import Kicker from "./Kicker";
 import Reveal from "./Reveal";
 import Section from "./Section";
+import SkylineArt from "./SkylineArt";
 import type { Project, ProjectStatus } from "../data/projects";
 import { projects } from "../data/projects";
 import { useLanguage } from "../context/LanguageContext";
@@ -36,7 +37,8 @@ export default function ProjectShowcase() {
   };
 
   return (
-    <Section className="py-[84px] md:py-[130px] bg-moss-dark text-white overflow-hidden">
+    <Section className="relative py-[84px] md:py-[130px] bg-moss-dark text-white overflow-hidden">
+      <SkylineArt className="absolute inset-x-0 top-0 -z-10 h-[64%] w-full text-gold opacity-20 pointer-events-none" />
       <Container className="flex flex-col md:flex-row md:justify-between md:items-end mb-[42px] md:mb-[56px] gap-[25px]">
         <Reveal className="max-w-[620px]">
           <Kicker className="text-sage">Flagship developments</Kicker>

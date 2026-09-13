@@ -53,7 +53,7 @@ export default function Footer() {
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
 
-      <Container className="relative grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 pb-[42px] mb-[46px] border-b border-[#e9e8df]/14">
+      <Container className="relative grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-6 pt-[6px] pb-[42px] mb-[46px] border-b border-[#e9e8df]/14">
         {stats.map((stat, index) => (
           <Reveal key={stat.label} delay={index * 0.06} y={14}>
             <div className="font-serif text-[32px] md:text-[40px] leading-none mb-2">
@@ -68,7 +68,7 @@ export default function Footer() {
         <Reveal>
           <a href="/" aria-label="Green Estate home" className="group inline-flex items-center mb-5">
             <img
-              src="/logo.png"
+              src="/logo-al-afrah-horizontal.svg"
               alt="Green Estate"
               className={`h-[26px] w-auto block transition-transform duration-300 ${EASE} group-hover:scale-[1.05]`}
             />

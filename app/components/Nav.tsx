@@ -55,7 +55,7 @@ export default function Nav({
       >
         {/* Scrim so nav content stays legible over busy/bright hero photos even before the solid state kicks in */}
         {!solid && (
-          <div className="absolute inset-0 h-[130px] bg-[linear-gradient(180deg,rgba(9,18,12,.58)_0%,rgba(9,18,12,.24)_55%,transparent_100%)] pointer-events-none" />
+          <div className="absolute inset-0 h-[130px] bg-[linear-gradient(180deg,rgba(16,14,23,.58)_0%,rgba(16,14,23,.24)_55%,transparent_100%)] pointer-events-none" />
         )}
         {/* Hairline edge at the bottom of the bar */}
         <div
@@ -67,7 +67,7 @@ export default function Nav({
         <nav className="flex h-[75px] md:h-[94px] items-center justify-between">
           <a href="/" aria-label="Green Estate home" className="group flex items-center">
             <img
-              src="/logo.png"
+              src="/logo-al-afrah-horizontal.svg"
               alt="Green Estate"
               className={`h-[30px] md:h-[36px] w-auto block drop-shadow-[0_2px_10px_rgba(0,0,0,.35)] transition-transform duration-300 ${EASE_CLASS} group-hover:scale-[1.05]`}
             />
@@ -155,7 +155,7 @@ export default function Nav({
             className="fixed inset-0 z-50 bg-moss-dark text-white p-6 md:hidden"
           >
             <div className="flex justify-between items-center h-[75px]">
-              <img src="/logo.png" alt="Green Estate" className="h-[28px] w-auto block" />
+              <img src="/logo-al-afrah-horizontal.svg" alt="Green Estate" className="h-[28px] w-auto block" />
               <motion.button
                 aria-label="Close navigation"
                 onClick={() => setMobileOpen(false)}
