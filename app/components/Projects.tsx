@@ -7,10 +7,8 @@ import ProjectCard from "./ProjectCard";
 import Reveal from "./Reveal";
 import Section from "./Section";
 import { projects } from "../data/projects";
-import { useLanguage } from "../context/LanguageContext";
 
 export default function Projects() {
-  const { language } = useLanguage();
   const ownDevelopments = projects.filter((project) => project.listingType === "Buy");
 
   return (
@@ -19,15 +17,9 @@ export default function Projects() {
         <Reveal className="flex flex-col md:flex-row md:justify-between md:items-end mb-[35px] md:mb-[52px] gap-[25px]">
           <div>
             <Kicker>Our portfolio</Kicker>
-            {language === "bn" ? (
-              <h2 className="font-bengali-serif font-extrabold text-[42px] md:text-[52px] leading-[1.35]">
-                যেসব জায়গা<br /><em className="not-italic text-gold-dark">আরেকবার দেখার মতো।</em>
-              </h2>
-            ) : (
-              <h2 className="font-serif font-bold text-[44px] md:text-[52px] leading-[1.02] tracking-[-.04em]">
-                Places worth<br /><em className="italic text-gold-dark">a second look.</em>
-              </h2>
-            )}
+            <h2 className="font-serif font-bold text-[44px] md:text-[52px] leading-[1.02] tracking-[-.04em]">
+              Places worth<br /><em className="italic text-gold-dark">a second look.</em>
+            </h2>
           </div>
           <a href="/projects?type=Buy" className="flex items-center gap-[10px] pb-[7px] border-b border-ink text-[13px] w-max">
             View all projects <ArrowUpRight size={16} />

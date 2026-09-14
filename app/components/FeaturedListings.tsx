@@ -8,7 +8,6 @@ import ProjectCard from "./ProjectCard";
 import Reveal from "./Reveal";
 import Section from "./Section";
 import { projects, type ListingType } from "../data/projects";
-import { useLanguage } from "../context/LanguageContext";
 
 export default function FeaturedListings({
   listingType,
@@ -21,7 +20,6 @@ export default function FeaturedListings({
   heading: ReactNode;
   bg?: string;
 }) {
-  const { language } = useLanguage();
   const listings = projects.filter((project) => project.listingType === listingType).slice(0, 6);
 
   if (listings.length === 0) return null;
@@ -32,15 +30,7 @@ export default function FeaturedListings({
         <Reveal className="flex flex-col md:flex-row md:justify-between md:items-end mb-[35px] md:mb-[52px] gap-[25px]">
           <div>
             <Kicker>{kicker}</Kicker>
-            <h2
-              className={
-                language === "bn"
-                  ? "font-bengali-serif font-extrabold text-[38px] md:text-[48px] leading-[1.35]"
-                  : "font-serif font-bold text-[40px] md:text-[48px] leading-[1.02] tracking-[-.04em]"
-              }
-            >
-              {heading}
-            </h2>
+            <h2 className="font-serif font-bold text-[40px] md:text-[48px] leading-[1.02] tracking-[-.04em]">{heading}</h2>
           </div>
           <a
             href={`/projects?type=${listingType}`}

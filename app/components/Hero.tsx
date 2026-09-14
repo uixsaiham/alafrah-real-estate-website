@@ -2,16 +2,16 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, ChevronDown, MoveRight } from "lucide-react";
+import BlueprintGrid from "./BlueprintGrid";
 import Container from "./Container";
 import CountUp from "./CountUp";
 import HeroSlider from "./HeroSlider";
 import Nav from "./Nav";
 import Reveal from "./Reveal";
-import { useLanguage } from "../context/LanguageContext";
 
 const stats = [
-  { value: 24, suffix: "+", label: "Projects delivered" },
-  { value: 2000, suffix: "+", label: "Homeowners" },
+  { value: 24, suffix: "+", label: "Developments delivered" },
+  { value: 350, suffix: "+", label: "Brands & tenants" },
   { value: 3, suffix: "", label: "Countries" },
 ];
 
@@ -38,10 +38,10 @@ function StaggerText({ text, delayStart = 0 }: { text: string; delayStart?: numb
 }
 
 export default function Hero({ onEnquire }: { onEnquire: () => void }) {
-  const { language } = useLanguage();
   return (
     <section id="top" className="relative flex flex-col min-h-[88svh] md:min-h-[85svh] overflow-hidden text-white">
       <HeroSlider />
+      <BlueprintGrid className="absolute inset-0 z-[1] text-white/[.07] pointer-events-none" />
       <Nav onEnquire={onEnquire} transparentAtTop />
 
       <div className="shrink-0 h-[75px] md:h-[94px]" aria-hidden />
@@ -54,33 +54,24 @@ export default function Hero({ onEnquire }: { onEnquire: () => void }) {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sage opacity-75" />
                 <span className="relative inline-flex rounded-full h-[7px] w-[7px] bg-sage" />
               </span>
-              Sustainable design, modern living
+              Commercial & shopping mall developers
             </div>
-            {language === "bn" ? (
-              <h1 className="my-[12px] mb-[14px] max-w-[920px] font-bengali-serif font-extrabold text-[24px] sm:text-[30px] sm:whitespace-nowrap md:text-[clamp(30px,4.2vw,54px)] leading-[1.25] tracking-[0] drop-shadow-[0_6px_28px_rgba(0,0,0,.28)]">
-                <StaggerText text="শুধু ইট-পাথর নয়," />
-                <br />
-                <em className="not-italic text-gold">
-                  <StaggerText text="আমরা গড়ে তুলি আপনার পরিবারের ভবিষ্যৎ।" delayStart={0.32} />
-                </em>
-              </h1>
-            ) : (
-              <h1 className="my-[10px] mb-[14px] max-w-[760px] font-serif font-bold text-[36px] md:text-[clamp(36px,5vw,66px)] leading-[1.04] tracking-[-.03em] drop-shadow-[0_6px_28px_rgba(0,0,0,.28)]">
-                <StaggerText text="Spaces designed" />
-                <br />
-                <em className="italic text-gold">
-                  <StaggerText text="to outlast generations." delayStart={0.32} />
-                </em>
-              </h1>
-            )}
+            <h1 className="my-[10px] mb-[14px] max-w-[760px] font-serif font-bold text-[36px] md:text-[clamp(36px,5vw,66px)] leading-[1.04] tracking-[-.03em] drop-shadow-[0_6px_28px_rgba(0,0,0,.28)]">
+              <StaggerText text="Spaces built" />
+              <br />
+              <em className="italic text-gold">
+                <StaggerText text="for commerce to thrive." delayStart={0.32} />
+              </em>
+            </h1>
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55, ease: EASE }}
               className="max-w-[440px] mb-[40px] text-[15px] leading-[1.6] text-white/86"
             >
-              For over a decade we&apos;ve shaped homes and workspaces across
-              Bangladesh and abroad — where sustainable design meets uncompromising craft.
+              For over a decade we&apos;ve developed shopping malls, retail plazas, and
+              Grade-A commercial towers across Bangladesh and abroad — where prime
+              location meets uncompromising construction.
             </motion.p>
             {/* Buy/Rent/Sell quick-filter removed for now — planned to come back as a redesigned feature */}
             <motion.div

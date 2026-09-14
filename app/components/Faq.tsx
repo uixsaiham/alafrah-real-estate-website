@@ -6,33 +6,31 @@ import Container from "./Container";
 import Kicker from "./Kicker";
 import Reveal from "./Reveal";
 import Section from "./Section";
-import { useLanguage } from "../context/LanguageContext";
 
 const faqs = [
   {
-    q: "How much down payment do I need to book a flat?",
-    a: "Most Green Estate projects require a 10–20% booking payment, with the balance structured across construction milestones for under-construction projects, or paid in full at registration for ready units.",
+    q: "How much down payment do I need to book a shop or office unit?",
+    a: "Most Al Afrah developments require a 10–20% booking payment, with the balance structured across construction milestones for under-construction projects, or paid in full at registration for ready units.",
   },
   {
-    q: "Can I get a home loan through Green Estate?",
-    a: "We don't lend directly, but our sales team works with partner banks and can introduce you to a loan officer once you've shortlisted a project. Use the investment calculator on any project page to estimate your EMI first.",
+    q: "Can I get financing through Al Afrah?",
+    a: "We don't lend directly, but our sales team works with partner banks and can introduce you to a loan officer once you've shortlisted a unit. Use the investment calculator on any project page to estimate your EMI first.",
   },
   {
     q: "Do you handle registration and paperwork?",
     a: "Yes. Our legal team prepares and verifies all registration documents, and can act on your behalf under power of attorney if you're buying from abroad.",
   },
   {
-    q: "What happens after I move in — is there after-sales support?",
-    a: "Every handover includes a one-year defect liability period, and our facilities team remains available for common-area maintenance for the life of the building.",
+    q: "What happens after handover — is there ongoing mall or building management?",
+    a: "Every handover includes a one-year defect liability period, and our facilities and leasing team remains available for common-area maintenance and tenant mix support for the life of the building.",
   },
   {
-    q: "Can I resell or rent out my flat through Green Estate?",
-    a: "Yes — our resale and rental desk lists units from previous Green Estate projects and can help with valuation, tenant screening, or a sale.",
+    q: "Can I resell or lease out my unit through Al Afrah?",
+    a: "Yes — our resale and leasing desk lists units from previous Al Afrah developments and can help with valuation, tenant screening, or a sale.",
   },
 ];
 
 export default function Faq() {
-  const { language } = useLanguage();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -40,15 +38,9 @@ export default function Faq() {
       <Container className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-[60px]">
         <Reveal>
           <Kicker>FAQs</Kicker>
-          {language === "bn" ? (
-            <h2 className="font-bengali-serif font-extrabold text-[36px] md:text-[44px] leading-[1.4] max-w-[420px]">
-              সবচেয়ে জরুরি<br /><em className="not-italic text-gold-dark">প্রশ্নের উত্তর।</em>
-            </h2>
-          ) : (
-            <h2 className="font-serif font-bold text-[36px] md:text-[44px] leading-[1.05] tracking-[-.03em] max-w-[380px]">
-              Answers to what<br /><em className="italic text-gold-dark">matters most.</em>
-            </h2>
-          )}
+          <h2 className="font-serif font-bold text-[36px] md:text-[44px] leading-[1.05] tracking-[-.03em] max-w-[380px]">
+            Answers to what<br /><em className="italic text-gold-dark">matters most.</em>
+          </h2>
         </Reveal>
         <Reveal delay={0.1}>
           <div className="grid">

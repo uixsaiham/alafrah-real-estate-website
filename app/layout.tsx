@@ -1,19 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { LanguageProvider } from "./context/LanguageContext";
 
 export const metadata: Metadata = {
-  title: "Green Estate — Modern architecture, sustainable development",
+  title: "Al Afrah Limited — Commercial & shopping mall developers",
   description:
-    "Green Estate develops residential and commercial properties across Bangladesh and abroad, built on sustainability, precision, and trust.",
+    "Al Afrah Limited develops shopping malls, retail plazas, and Grade-A commercial towers across Bangladesh and abroad, built on precision, craft, and trust.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning>
-        <LanguageProvider>{children}</LanguageProvider>
-      </body>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

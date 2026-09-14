@@ -7,13 +7,11 @@ import Kicker from "./Kicker";
 import Reveal from "./Reveal";
 import Section from "./Section";
 import { blogPosts } from "../data/blog";
-import { useLanguage } from "../context/LanguageContext";
 
 export default function Journal() {
-  const { language } = useLanguage();
   const [feature, ...rest] = blogPosts;
   const small = rest.slice(0, 2);
-  const smallBg = ["bg-[#dcd9cc]", "bg-[#72816d] text-[#f5f3eb]"];
+  const smallBg = ["bg-[#e4dcc4]", "bg-moss text-[#f5f3eb]"];
 
   return (
     <Section id="journal" className="py-[84px] md:py-[130px]">
@@ -21,15 +19,9 @@ export default function Journal() {
         <Reveal className="flex flex-col md:flex-row md:justify-between md:items-end mb-[35px] md:mb-[48px] gap-[25px]">
           <div>
             <Kicker>News & journal</Kicker>
-            {language === "bn" ? (
-              <h2 className="font-bengali-serif font-extrabold text-[42px] md:text-[52px] leading-[1.35]">
-                আপনার পছন্দের ঘর সাজানোর টিপস<br /><em className="not-italic text-gold-dark">ও নির্মাণ ভাবনা।</em>
-              </h2>
-            ) : (
-              <h2 className="font-serif font-bold text-[44px] md:text-[52px] leading-[1.02] tracking-[-.04em]">
-                Stories from <em className="italic text-gold-dark">the build.</em>
-              </h2>
-            )}
+            <h2 className="font-serif font-bold text-[44px] md:text-[52px] leading-[1.02] tracking-[-.04em]">
+              Stories from <em className="italic text-gold-dark">the build.</em>
+            </h2>
           </div>
           <a href="/blog" className="flex items-center gap-[10px] pb-[7px] border-b border-ink text-[13px] w-max">
             Read the journal <ArrowUpRight size={16} />
@@ -46,14 +38,8 @@ export default function Journal() {
                 <Kicker>
                   {feature.category} · {feature.readTime}
                 </Kicker>
-                <h3
-                  className={
-                    language === "bn"
-                      ? "font-bengali-serif font-semibold text-[26px] leading-[1.45] mb-[34px] max-w-[380px]"
-                      : "font-serif font-bold text-[31px] leading-[1.05] tracking-[-.035em] mb-[34px] max-w-[380px]"
-                  }
-                >
-                  {language === "bn" ? feature.titleBn : feature.title}
+                <h3 className="font-serif font-bold text-[31px] leading-[1.05] tracking-[-.035em] mb-[34px] max-w-[380px]">
+                  {feature.title}
                 </h3>
                 <span className="flex items-center gap-2 text-[13px]">
                   Read story <ArrowUpRight size={15} />
@@ -74,14 +60,8 @@ export default function Journal() {
                 >
                   {post.category} · {post.readTime}
                 </p>
-                <h3
-                  className={
-                    language === "bn"
-                      ? "font-bengali-serif font-semibold text-[22px] leading-[1.45] mt-9 mb-3 max-w-[380px]"
-                      : "font-serif font-bold text-[28px] leading-[1.05] tracking-[-.035em] mt-9 mb-3 max-w-[380px]"
-                  }
-                >
-                  {language === "bn" ? post.titleBn : post.title}
+                <h3 className="font-serif font-bold text-[28px] leading-[1.05] tracking-[-.035em] mt-9 mb-3 max-w-[380px]">
+                  {post.title}
                 </h3>
                 <span className="flex items-center gap-2 text-[13px]">
                   Read story{" "}

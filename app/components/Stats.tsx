@@ -1,36 +1,30 @@
 "use client";
 
+import BlueprintGrid from "./BlueprintGrid";
 import CountUp from "./CountUp";
 import Kicker from "./Kicker";
 import Reveal from "./Reveal";
 import Section from "./Section";
-import { useLanguage } from "../context/LanguageContext";
 
 const stats = [
-  { value: 24, suffix: "+", label: "Projects delivered" },
-  { value: 2000, suffix: "+", label: "Happy homeowners" },
+  { value: 24, suffix: "+", label: "Developments delivered" },
+  { value: 350, suffix: "+", label: "Brands & tenants housed" },
   { value: 120, suffix: "+", label: "Team members" },
   { value: 12, suffix: "", label: "Years of experience" },
 ];
 
 export default function Stats() {
-  const { language } = useLanguage();
   return (
     <Section className="relative py-[85px] md:py-[120px] px-5 md:px-[max(48px,calc((100vw-1220px)/2))] text-[#f5f3eb] bg-moss overflow-hidden">
+      <BlueprintGrid className="absolute inset-0 text-[#f5f3eb]/[.06] pointer-events-none" />
       <div className="absolute w-[560px] h-[560px] rounded-full border border-[#f5f3eb]/22 right-[-80px] top-[-120px]" />
       <div className="absolute w-[390px] h-[390px] rounded-full border border-[#f5f3eb]/16 right-[45px] top-[-35px]" />
       <div className="relative z-10">
         <Reveal>
-          <Kicker className="text-[#dce5d6]">By the numbers</Kicker>
-          {language === "bn" ? (
-            <h2 className="font-bengali-serif font-extrabold text-[38px] md:text-[52px] leading-[1.35] max-w-[680px] mb-[52px]">
-              শুধু একটি বাড়ি নয়।<br /><em className="not-italic">এক জীবনযাপনের ধরন।</em>
-            </h2>
-          ) : (
-            <h2 className="font-serif font-bold text-[40px] md:text-[56px] leading-[1.02] tracking-[-.04em] max-w-[640px] mb-[52px]">
-              Not just a house.<br /><em className="italic text-gold">A way of living.</em>
-            </h2>
-          )}
+          <Kicker className="text-[#f3e6c2]">By the numbers</Kicker>
+          <h2 className="font-serif font-bold text-[40px] md:text-[56px] leading-[1.02] tracking-[-.04em] max-w-[640px] mb-[52px]">
+            Not just a building.<br /><em className="italic text-gold">A destination.</em>
+          </h2>
         </Reveal>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10 max-w-[820px]">
           {stats.map((stat, index) => (

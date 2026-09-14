@@ -65,10 +65,10 @@ export default function Nav({
         />
         <Container className="relative z-10">
         <nav className="flex h-[75px] md:h-[94px] items-center justify-between">
-          <a href="/" aria-label="Green Estate home" className="group flex items-center">
+          <a href="/" aria-label="Al Afrah Limited home" className="group flex items-center">
             <img
               src="/logo-al-afrah-horizontal.svg"
-              alt="Green Estate"
+              alt="Al Afrah Limited"
               className={`h-[30px] md:h-[36px] w-auto block drop-shadow-[0_2px_10px_rgba(0,0,0,.35)] transition-transform duration-300 ${EASE_CLASS} group-hover:scale-[1.05]`}
             />
           </a>
@@ -155,7 +155,7 @@ export default function Nav({
             className="fixed inset-0 z-50 bg-moss-dark text-white p-6 md:hidden"
           >
             <div className="flex justify-between items-center h-[75px]">
-              <img src="/logo-al-afrah-horizontal.svg" alt="Green Estate" className="h-[28px] w-auto block" />
+              <img src="/logo-al-afrah-horizontal.svg" alt="Al Afrah Limited" className="h-[28px] w-auto block" />
               <motion.button
                 aria-label="Close navigation"
                 onClick={() => setMobileOpen(false)}

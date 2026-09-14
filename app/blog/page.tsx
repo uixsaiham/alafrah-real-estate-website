@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import BlogCard from "../components/BlogCard";
+import BlueprintGrid from "../components/BlueprintGrid";
 import Container from "../components/Container";
 import Contact from "../components/Contact";
 import EnquiryModal from "../components/EnquiryModal";
@@ -11,10 +12,8 @@ import Nav from "../components/Nav";
 import Reveal from "../components/Reveal";
 import { blogPosts } from "../data/blog";
 import { BD_MUGDA_TERRACED } from "../data/images";
-import { useLanguage } from "../context/LanguageContext";
 
 export default function BlogPage() {
-  const { language } = useLanguage();
   const [enquiryOpen, setEnquiryOpen] = useState(false);
 
   return (
@@ -22,20 +21,15 @@ export default function BlogPage() {
       <div className="relative bg-moss-dark overflow-hidden">
         <img src={BD_MUGDA_TERRACED} alt="" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,26,17,.82)_0%,rgba(13,26,17,.9)_100%)]" />
+        <BlueprintGrid className="absolute inset-0 z-[1] text-white/[.06] pointer-events-none" />
         <div className="relative z-10">
           <Nav onEnquire={() => setEnquiryOpen(true)} />
           <Container className="pt-[125px] pb-[64px] md:pt-[164px] md:pb-[80px]">
             <Reveal>
-              <Kicker className="text-[#dce5d6]">Journal</Kicker>
-              {language === "bn" ? (
-                <h1 className="font-bengali-serif font-extrabold text-white text-[42px] md:text-[58px] leading-[1.35] max-w-[760px]">
-                  আপনার পছন্দের ঘর সাজানোর টিপস<br /><em className="not-italic text-gold">ও নির্মাণ ভাবনা।</em>
-                </h1>
-              ) : (
-                <h1 className="font-serif font-bold text-white text-[44px] md:text-[60px] leading-[1.02] tracking-[-.04em] max-w-[720px]">
-                  Stories from<br /><em className="italic text-gold">the build.</em>
-                </h1>
-              )}
+              <Kicker className="text-[#f3e6c2]">Journal</Kicker>
+              <h1 className="font-serif font-bold text-white text-[44px] md:text-[60px] leading-[1.02] tracking-[-.04em] max-w-[720px]">
+                Stories from<br /><em className="italic text-gold">the build.</em>
+              </h1>
             </Reveal>
           </Container>
         </div>

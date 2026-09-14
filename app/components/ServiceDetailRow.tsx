@@ -1,21 +1,18 @@
 import { Check, type LucideIcon } from "lucide-react";
 import Reveal from "./Reveal";
-import { useLanguage } from "../context/LanguageContext";
 
 export type ServiceDetail = {
   icon: LucideIcon;
   step: string;
   title: string;
-  titleBn: string;
   description: string;
   includes: string[];
   image: string;
-  lead?: { name: string; nameBn: string; role: string; roleBn: string; image: string };
+  lead?: { name: string; role: string; image: string };
   highlight?: { value: string; label: string };
 };
 
 export default function ServiceDetailRow({ service, reverse = false }: { service: ServiceDetail; reverse?: boolean }) {
-  const { language } = useLanguage();
   const content = (
     <Reveal>
       <div className="flex items-center gap-4 mb-6">
@@ -24,14 +21,8 @@ export default function ServiceDetailRow({ service, reverse = false }: { service
         </span>
         <span className="font-mono text-[11px] uppercase tracking-[.09em] text-moss">Service {service.step}</span>
       </div>
-      <h3
-        className={
-          language === "bn"
-            ? "font-bengali-serif font-extrabold text-[32px] md:text-[38px] leading-[1.4] mb-5"
-            : "font-serif font-bold text-[30px] md:text-[36px] leading-[1.1] tracking-[-.02em] mb-5"
-        }
-      >
-        {language === "bn" ? service.titleBn : service.title}
+      <h3 className="font-serif font-bold text-[30px] md:text-[36px] leading-[1.1] tracking-[-.02em] mb-5">
+        {service.title}
       </h3>
       <p className="text-muted text-[15px] leading-[1.7] mb-7 max-w-[480px]">{service.description}</p>
       <ul className="grid gap-3 mb-8">
@@ -47,21 +38,12 @@ export default function ServiceDetailRow({ service, reverse = false }: { service
         <div className="flex items-center gap-4">
           <img
             src={service.lead.image}
-            alt={language === "bn" ? service.lead.nameBn : service.lead.name}
+            alt={service.lead.name}
             className="w-11 h-11 rounded-full object-cover grayscale-[25%]"
           />
           <div>
-            {language === "bn" ? (
-              <>
-                <div className="font-bengali text-[15px] font-medium leading-[1.5]">{service.lead.nameBn}</div>
-                <div className="font-bengali text-muted text-[13px] leading-[1.5]">{service.lead.roleBn}</div>
-              </>
-            ) : (
-              <>
-                <div className="text-[15px] font-medium leading-[1.5]">{service.lead.name}</div>
-                <div className="text-muted text-[13px] leading-[1.5]">{service.lead.role}</div>
-              </>
-            )}
+            <div className="text-[15px] font-medium leading-[1.5]">{service.lead.name}</div>
+            <div className="text-muted text-[13px] leading-[1.5]">{service.lead.role}</div>
           </div>
         </div>
       )}

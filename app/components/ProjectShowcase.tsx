@@ -1,17 +1,18 @@
 "use client";
 
 import { motion, useScroll } from "framer-motion";
-import { ArrowLeft, ArrowRight, ArrowUpRight, BedDouble, Check, MapPin, Ruler } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Check, Layers, MapPin, Ruler } from "lucide-react";
 import Link from "next/link";
 import { useRef, type RefObject } from "react";
+import BlueprintGrid from "./BlueprintGrid";
 import Container from "./Container";
+import CornerBrackets from "./CornerBrackets";
 import Kicker from "./Kicker";
 import Reveal from "./Reveal";
 import Section from "./Section";
 import SkylineArt from "./SkylineArt";
 import type { Project, ProjectStatus } from "../data/projects";
 import { projects } from "../data/projects";
-import { useLanguage } from "../context/LanguageContext";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -24,7 +25,6 @@ const statusDot: Record<ProjectStatus, string> = {
 const featured = projects.filter((project) => project.listingType === "Buy").slice(0, 6);
 
 export default function ProjectShowcase() {
-  const { language } = useLanguage();
   const scrollRef = useRef<HTMLDivElement>(null);
   const { scrollXProgress } = useScroll({ container: scrollRef });
 
@@ -38,55 +38,55 @@ export default function ProjectShowcase() {
 
   return (
     <Section className="relative py-[84px] md:py-[130px] bg-moss-dark text-white overflow-hidden">
-      <SkylineArt className="absolute inset-x-0 top-0 -z-10 h-[64%] w-full text-gold opacity-20 pointer-events-none" />
-      <Container className="flex flex-col md:flex-row md:justify-between md:items-end mb-[42px] md:mb-[56px] gap-[25px]">
-        <Reveal className="max-w-[620px]">
-          <Kicker className="text-sage">Flagship developments</Kicker>
-          {language === "bn" ? (
-            <h2 className="font-bengali-serif font-extrabold text-[42px] md:text-[54px] leading-[1.35] mb-4">
-              একে ঘর বলার<br /><em className="not-italic text-gold">ছয়টি কারণ।</em>
-            </h2>
-          ) : (
+      {/* Negative z-index here would composite behind this section's own background on some
+          browsers once Framer Motion applies a transform — so instead these decorative layers
+          stay at the default stack level and the real content is lifted above them with z-10. */}
+      <BlueprintGrid className="absolute inset-0 text-white/[.03] pointer-events-none" />
+      <SkylineArt className="absolute inset-x-0 top-0 h-[64%] w-full text-gold opacity-[.08] pointer-events-none" />
+      <div className="relative z-10">
+        <Container className="flex flex-col md:flex-row md:justify-between md:items-end mb-[42px] md:mb-[56px] gap-[25px]">
+          <Reveal className="max-w-[620px]">
+            <Kicker className="text-sage">Flagship developments</Kicker>
             <h2 className="font-serif font-bold text-[44px] md:text-[54px] leading-[1.02] tracking-[-.04em] mb-4">
-              Six reasons<br /><em className="italic text-gold">to call it home.</em>
+              Addresses where<br /><em className="italic text-gold">business thrives.</em>
             </h2>
-          )}
-          <p className="text-white/65 text-[15px] leading-[1.7] max-w-[460px]">
-            A closer look at the developments currently open for booking — drag or scroll through
-            specs, amenities, and availability for each one.
-          </p>
-        </Reveal>
-        <Reveal delay={0.1} className="flex items-center gap-3 shrink-0">
-          <button
-            aria-label="Scroll left"
-            onClick={() => scrollByCard(-1)}
-            className="grid place-items-center w-11 h-11 border border-white/25 transition-colors duration-300 ease-[cubic-bezier(.22,1,.36,1)] hover:bg-white/10 hover:border-white/45"
-          >
-            <ArrowLeft size={16} />
-          </button>
-          <button
-            aria-label="Scroll right"
-            onClick={() => scrollByCard(1)}
-            className="grid place-items-center w-11 h-11 border border-white/25 transition-colors duration-300 ease-[cubic-bezier(.22,1,.36,1)] hover:bg-white/10 hover:border-white/45"
-          >
-            <ArrowRight size={16} />
-          </button>
-        </Reveal>
-      </Container>
+            <p className="text-white/65 text-[15px] leading-[1.7] max-w-[460px]">
+              A closer look at the developments currently open for booking — drag or scroll through
+              specs, amenities, and availability for each one.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1} className="flex items-center gap-3 shrink-0">
+            <button
+              aria-label="Scroll left"
+              onClick={() => scrollByCard(-1)}
+              className="grid place-items-center w-11 h-11 border border-white/25 transition-colors duration-300 ease-[cubic-bezier(.22,1,.36,1)] hover:bg-white/10 hover:border-white/45"
+            >
+              <ArrowLeft size={16} />
+            </button>
+            <button
+              aria-label="Scroll right"
+              onClick={() => scrollByCard(1)}
+              className="grid place-items-center w-11 h-11 border border-white/25 transition-colors duration-300 ease-[cubic-bezier(.22,1,.36,1)] hover:bg-white/10 hover:border-white/45"
+            >
+              <ArrowRight size={16} />
+            </button>
+          </Reveal>
+        </Container>
 
-      <Container className="mb-8">
-        <div className="h-[2px] bg-white/15 relative overflow-hidden">
-          <motion.div className="absolute inset-y-0 left-0 w-full bg-sage origin-left" style={{ scaleX: scrollXProgress }} />
+        <Container className="mb-8">
+          <div className="h-[2px] bg-white/15 relative overflow-hidden">
+            <motion.div className="absolute inset-y-0 left-0 w-full bg-sage origin-left" style={{ scaleX: scrollXProgress }} />
+          </div>
+        </Container>
+
+        <div
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pl-5 md:pl-12 2xl:pl-[calc((100vw-1220px)/2+48px)] pr-5 md:pr-12"
+        >
+          {featured.map((project, index) => (
+            <ShowcaseCard key={project.slug} project={project} scrollRef={scrollRef} index={index} />
+          ))}
         </div>
-      </Container>
-
-      <div
-        ref={scrollRef}
-        className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pl-5 md:pl-12 2xl:pl-[calc((100vw-1220px)/2+48px)] pr-5 md:pr-12"
-      >
-        {featured.map((project, index) => (
-          <ShowcaseCard key={project.slug} project={project} scrollRef={scrollRef} index={index} />
-        ))}
       </div>
     </Section>
   );
@@ -101,7 +101,6 @@ function ShowcaseCard({
   scrollRef: RefObject<HTMLDivElement | null>;
   index: number;
 }) {
-  const { language } = useLanguage();
   const snippet = project.description.split(". ")[0].trim().replace(/\.$/, "") + ".";
 
   return (
@@ -131,31 +130,25 @@ function ShowcaseCard({
               {project.status}
             </span>
           </div>
+          <CornerBrackets
+            variant="top"
+            className="absolute inset-3 text-white/0 group-hover:text-white/80 transition-colors duration-500 ease-[cubic-bezier(.22,1,.36,1)] pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,.6)]"
+          />
 
           <div className="absolute inset-x-0 bottom-0 p-5">
             <p className="flex items-center gap-[5px] text-sage font-mono text-[10px] uppercase tracking-[.05em] mb-2">
               <MapPin size={12} strokeWidth={1.5} /> {project.location}
             </p>
-            <h3
-              className={
-                language === "bn"
-                  ? "font-bengali-serif font-semibold text-[24px] leading-[1.45] mb-2"
-                  : "font-serif font-bold text-[22px] leading-[1.15] tracking-[-.02em] mb-2"
-              }
-            >
-              {language === "bn" ? project.nameBn : project.name}
-            </h3>
+            <h3 className="font-serif font-bold text-[22px] leading-[1.15] tracking-[-.02em] mb-2">{project.name}</h3>
             <p className="text-white/70 text-[12px] leading-[1.5] mb-4 line-clamp-2 max-w-[320px]">{snippet}</p>
 
             <div className="flex items-center gap-x-3 gap-y-2 flex-wrap mb-4 font-mono text-[11px] text-white/85">
               <span className="flex items-center gap-[5px]">
                 <Ruler size={12} strokeWidth={1.6} /> {project.sizeSqft}
               </span>
-              {project.bedrooms && (
-                <span className="flex items-center gap-[5px]">
-                  <BedDouble size={12} strokeWidth={1.6} /> {project.bedrooms} bed
-                </span>
-              )}
+              <span className="flex items-center gap-[5px]">
+                <Layers size={12} strokeWidth={1.6} /> {project.floors} floors
+              </span>
             </div>
 
             <div className="grid gap-[6px] mb-5">

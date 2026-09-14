@@ -9,14 +9,12 @@ export type Filters = {
   listingType: ListingType;
   status: ProjectStatus | "All";
   type: ProjectType | "All";
-  bedrooms: number | "All";
   query: string;
 };
 
 const listingTypes: ListingType[] = ["Buy", "Rent", "Sell"];
 const statuses: (ProjectStatus | "All")[] = ["All", "Ready to move", "Under construction", "Sold out"];
-const types: (ProjectType | "All")[] = ["All", "Residential", "Commercial", "Mixed-use"];
-const bedroomOptions: (number | "All")[] = ["All", 2, 3, 4];
+const types: (ProjectType | "All")[] = ["All", "Retail", "Commercial", "Mixed-use"];
 
 function Toggle<T extends string | number>({
   options,
@@ -81,7 +79,7 @@ export default function FilterBar({
             className="w-full bg-transparent outline-none text-[15px] placeholder:text-muted"
           />
         </div>
-        <div className={`grid gap-5 ${filters.listingType === "Buy" ? "md:grid-cols-3" : "md:grid-cols-2"}`}>
+        <div className={`grid gap-5 ${filters.listingType === "Buy" ? "md:grid-cols-2" : "md:grid-cols-1"}`}>
           {filters.listingType === "Buy" && (
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[.07em] text-moss mb-3">Status</p>
@@ -91,14 +89,6 @@ export default function FilterBar({
           <div>
             <p className="font-mono text-[10px] uppercase tracking-[.07em] text-moss mb-3">Type</p>
             <Toggle options={types} value={filters.type} onChange={(type) => onChange({ ...filters, type })} />
-          </div>
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[.07em] text-moss mb-3">Bedrooms</p>
-            <Toggle
-              options={bedroomOptions}
-              value={filters.bedrooms}
-              onChange={(bedrooms) => onChange({ ...filters, bedrooms })}
-            />
           </div>
         </div>
       </div>
