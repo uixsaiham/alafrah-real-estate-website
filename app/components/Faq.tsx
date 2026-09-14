@@ -28,6 +28,10 @@ const faqs = [
     q: "Can I resell or lease out my unit through Al Afrah?",
     a: "Yes — our resale and leasing desk lists units from previous Al Afrah developments and can help with valuation, tenant screening, or a sale.",
   },
+  {
+    q: "Do your developments include gardens, water features, or play areas?",
+    a: "Yes — landscaping is scoped alongside the building itself, not added afterward. Most developments include a landscaped courtyard or rooftop garden, and our malls add a water feature and a dedicated children's play area as standard.",
+  },
 ];
 
 export default function Faq() {

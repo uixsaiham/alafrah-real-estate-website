@@ -54,8 +54,8 @@ export const projects: Project[] = [
     image: BD_DHAKA_DIAMOND,
     gallery: [BD_DHAKA_DIAMOND, BD_SUSTAINABLE_AERIAL, BD_CONCORD_AJIMPUR],
     description:
-      "Al Afrah's flagship shopping destination for Gulshan, Afrah Central Mall brings eight floors of anchor retail, a curated food court, and a four-screen multiplex to Dhaka's diplomatic zone. Individual shop and showroom units are available for outright ownership, with structural work on schedule for handover next year.",
-    amenities: ["Anchor tenant floor", "Four-screen multiplex", "Food court", "Panoramic glass elevators", "Central AC", "Multi-level basement parking", "24/7 security", "Backup generator"],
+      "Al Afrah's flagship shopping destination for Gulshan, Afrah Central Mall brings eight floors of anchor retail, a curated food court, and a four-screen multiplex to Dhaka's diplomatic zone, wrapped around a landscaped atrium waterfall and a rooftop garden with a dedicated children's play zone. Individual shop and showroom units are available for outright ownership, with structural work on schedule for handover next year.",
+    amenities: ["Indoor atrium waterfall", "Rooftop garden terrace", "Children's play zone", "Anchor tenant floor", "Four-screen multiplex", "Food court", "Panoramic glass elevators", "Central AC", "Multi-level basement parking", "24/7 security", "Backup generator"],
   },
   {
     slug: "afrah-trade-tower",
@@ -74,8 +74,8 @@ export const projects: Project[] = [
     image: BD_CONCORD_AJIMPUR,
     gallery: [BD_CONCORD_AJIMPUR, BD_DHAKA_DIAMOND, BD_ALIF_BREEZE],
     description:
-      "A Grade-A office address in Dhaka's traditional business district, Afrah Trade Tower pairs column-free floor plates with floor-to-ceiling glazing and dedicated service elevators. Fully handed over, with floors configurable as single-tenant offices or subdivided suites.",
-    amenities: ["Column-free floor plates", "Passenger + service lifts", "Central AC", "Backup generator", "24/7 security", "Basement parking", "Conference facilities"],
+      "A Grade-A office address in Dhaka's traditional business district, Afrah Trade Tower pairs column-free floor plates with floor-to-ceiling glazing and dedicated service elevators, topped by a rooftop garden lounge where tenants take meetings outdoors. Fully handed over, with floors configurable as single-tenant offices or subdivided suites.",
+    amenities: ["Rooftop garden lounge", "Column-free floor plates", "Passenger + service lifts", "Central AC", "Backup generator", "24/7 security", "Basement parking", "Conference facilities"],
   },
   {
     slug: "afrah-junction",
@@ -94,8 +94,8 @@ export const projects: Project[] = [
     image: BD_BANANI_MODEL_TOWN,
     gallery: [BD_BANANI_MODEL_TOWN, BD_MUGDA_TERRACED, INTERIOR_LIVING_ROOM],
     description:
-      "A neighborhood retail-and-office hub for Uttara, Afrah Junction combines ground-floor retail frontage with office suites on the upper five floors. Fully handed over and already home to a mix of local brands and small business tenants.",
-    amenities: ["Ground-floor retail frontage", "Passenger lift", "24/7 security", "Backup generator", "Reserved parking", "Signage rights"],
+      "A neighborhood retail-and-office hub for Uttara, Afrah Junction combines ground-floor retail frontage with office suites on the upper five floors, built around a shared green courtyard that gives tenants and shoppers a place to sit outside the shopfronts. Fully handed over and already home to a mix of local brands and small business tenants.",
+    amenities: ["Shared green courtyard", "Ground-floor retail frontage", "Passenger lift", "24/7 security", "Backup generator", "Reserved parking", "Signage rights"],
   },
   {
     slug: "afrah-lifestyle-mall",
@@ -114,8 +114,8 @@ export const projects: Project[] = [
     image: BD_GREEN_NEST,
     gallery: [BD_GREEN_NEST, BD_DHANMONDI_VIEW, BD_SUSTAINABLE_AERIAL],
     description:
-      "Chattogram's port-city answer to Dhaka's flagship malls, Afrah Lifestyle Mall brings seven floors of retail, dining, and entertainment to Agrabad. Structural work is progressing on schedule, with select ground and first-floor units already reserved.",
-    amenities: ["Anchor tenant floor", "Food court", "Escalators & panoramic lifts", "Central AC", "24/7 security", "Backup generator", "Multi-level parking"],
+      "Chattogram's port-city answer to Dhaka's flagship malls, Afrah Lifestyle Mall brings seven floors of retail, dining, and entertainment to Agrabad, capped by a rooftop garden and play zone designed for families to spend the whole afternoon. Structural work is progressing on schedule, with select ground and first-floor units already reserved.",
+    amenities: ["Rooftop garden & play zone", "Anchor tenant floor", "Food court", "Escalators & panoramic lifts", "Central AC", "24/7 security", "Backup generator", "Multi-level parking"],
   },
   {
     slug: "afrah-city-walk",
@@ -134,8 +134,8 @@ export const projects: Project[] = [
     image: BD_MUGDA_TERRACED,
     gallery: [BD_MUGDA_TERRACED, BD_BANANI_MODEL_TOWN, BD_HABIBULLAH_STREET],
     description:
-      "An open-air, high-street-style retail concept for Bashundhara R/A, Afrah City Walk spreads boutique storefronts across four low-rise floors framing a landscaped courtyard. Designed for fashion, lifestyle, and F&B brands looking for street-level visibility.",
-    amenities: ["Landscaped courtyard", "Street-level storefronts", "24/7 security", "Backup generator", "Dedicated parking", "Outdoor seating plaza"],
+      "An open-air, high-street-style retail concept for Bashundhara R/A, Afrah City Walk spreads boutique storefronts across four low-rise floors framing a landscaped courtyard, a splash fountain plaza, and a fenced children's play corner. Designed for fashion, lifestyle, and F&B brands looking for street-level visibility.",
+    amenities: ["Landscaped courtyard", "Splash fountain plaza", "Children's play corner", "Street-level storefronts", "24/7 security", "Backup generator", "Dedicated parking", "Outdoor seating plaza"],
   },
   {
     slug: "afrah-riverside-commercial-park",
@@ -154,8 +154,8 @@ export const projects: Project[] = [
     image: BD_SUSTAINABLE_AERIAL,
     gallery: [BD_SUSTAINABLE_AERIAL, BD_CONCORD_AJIMPUR, BD_BANANI_MODEL_TOWN],
     description:
-      "A low-rise commercial park for Narayanganj combining warehousing, showroom, and light-industrial units across three floors, built for businesses that need loading access alongside street-facing retail. Structural work is on schedule for next year.",
-    amenities: ["Ground-level loading dock", "Showroom + warehouse configurations", "24/7 security", "Backup generator", "Ample vehicle parking"],
+      "A low-rise commercial park for Narayanganj combining warehousing, showroom, and light-industrial units across three floors, built for businesses that need loading access alongside street-facing retail, with a landscaped green buffer and walking path along the riverside edge. Structural work is on schedule for next year.",
+    amenities: ["Riverside green buffer & walking path", "Ground-level loading dock", "Showroom + warehouse configurations", "24/7 security", "Backup generator", "Ample vehicle parking"],
   },
   {
     slug: "afrah-international-plaza",
@@ -178,8 +178,8 @@ export const projects: Project[] = [
       "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=85",
     ],
     description:
-      "Al Afrah's first international development, Afrah International Plaza combines ground-floor retail with serviced office floors above — built to UK code with the same delivery discipline as our Dhaka developments.",
-    amenities: ["Ground-floor retail", "Serviced office floors", "Covered parking", "Elevator access", "On-site management"],
+      "Al Afrah's first international development, Afrah International Plaza combines ground-floor retail with serviced office floors above, set around a landscaped entrance plaza — built to UK code with the same delivery discipline as our Dhaka developments.",
+    amenities: ["Landscaped entrance plaza", "Ground-floor retail", "Serviced office floors", "Covered parking", "Elevator access", "On-site management"],
   },
 
   // Resale — individually owned commercial units listed for sale
@@ -201,7 +201,7 @@ export const projects: Project[] = [
     gallery: [BD_ALIF_BREEZE, BD_DHAKA_DIAMOND, INTERIOR_LIVING_ROOM],
     description:
       "A full-floor commercial unit on the ninth floor of Afrah Corporate Heights, independently owned since handover and now offered for resale. Column-free layout with panoramic city views, sold with fit-out and partitioning included.",
-    amenities: ["Column-free floor plate", "City views", "24/7 security", "Backup generator", "Passenger + service lifts", "Reserved parking"],
+    amenities: ["Column-free floor plate", "City views", "Access to rooftop garden lounge", "24/7 security", "Backup generator", "Passenger + service lifts", "Reserved parking"],
   },
   {
     slug: "shop-3a-afrah-junction",
@@ -262,8 +262,8 @@ export const projects: Project[] = [
     image: BD_DHAKA_DIAMOND,
     gallery: [BD_DHAKA_DIAMOND, BD_ALIF_BREEZE, BD_CONCORD_AJIMPUR],
     description:
-      "Fitted-out office suites in a boutique Banani tower, available on flexible lease terms. Suites come with meeting rooms, pantry space, and dedicated fibre connectivity already installed — ready for immediate occupancy.",
-    amenities: ["Fitted meeting rooms", "Fibre connectivity", "Central AC", "24/7 security", "Passenger + service lifts", "Reserved parking"],
+      "Fitted-out office suites in a boutique Banani tower, available on flexible lease terms, entered through a landscaped courtyard rather than a straight-off-the-street lobby. Suites come with meeting rooms, pantry space, and dedicated fibre connectivity already installed — ready for immediate occupancy.",
+    amenities: ["Landscaped entrance courtyard", "Fitted meeting rooms", "Fibre connectivity", "Central AC", "24/7 security", "Passenger + service lifts", "Reserved parking"],
   },
   {
     slug: "afrah-shopping-arcade-retail-units",

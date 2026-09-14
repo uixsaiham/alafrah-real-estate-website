@@ -22,6 +22,11 @@ const milestones = [
     copy: "Broke ground on Afrah Trade Tower, our first Grade-A commercial address in Motijheel.",
   },
   {
+    year: "2020",
+    title: "Gardens and water features become standard",
+    copy: "Introduced landscaped courtyards and water features as a signature element of every new development, starting with Afrah City Walk.",
+  },
+  {
     year: "2022",
     title: "International debut",
     copy: "Launched Afrah International Plaza, our first development outside Bangladesh.",

@@ -70,8 +70,8 @@ export default function Hero({ onEnquire }: { onEnquire: () => void }) {
               className="max-w-[440px] mb-[40px] text-[15px] leading-[1.6] text-white/86"
             >
               For over a decade we&apos;ve developed shopping malls, retail plazas, and
-              Grade-A commercial towers across Bangladesh and abroad — where prime
-              location meets uncompromising construction.
+              Grade-A commercial towers across Bangladesh and abroad — each shaped around
+              landscaped gardens, water features, and play areas, not just floor space.
             </motion.p>
             {/* Buy/Rent/Sell quick-filter removed for now — planned to come back as a redesigned feature */}
             <motion.div

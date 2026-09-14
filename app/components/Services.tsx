@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Building2, Compass, HardHat, LineChart, PencilRuler } from "lucide-react";
+import { ArrowUpRight, Building2, Compass, HardHat, LineChart, PencilRuler, Waves } from "lucide-react";
 import Container from "./Container";
 import Kicker from "./Kicker";
 import Reveal from "./Reveal";
@@ -32,6 +32,11 @@ const services = [
     title: "Architecture & design",
     copy: "Considered architecture that balances footfall, visibility, and material with long-term commercial value.",
   },
+  {
+    icon: Waves,
+    title: "Landscape & water features",
+    copy: "Gardens, waterfalls, and play areas designed into every development, giving families a reason to stay longer.",
+  },
 ];
 
 export default function Services() {
@@ -49,7 +54,7 @@ export default function Services() {
             How we work <ArrowUpRight size={16} />
           </a>
         </Reveal>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px bg-line">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line">
           {services.map((service, index) => (
             <Reveal key={service.title} delay={index * 0.06} y={16}>
               <a

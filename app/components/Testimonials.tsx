@@ -21,7 +21,7 @@ const testimonials = [
   },
   {
     quote:
-      "Our showroom fit-out at Afrah Central Mall came together faster than any commercial build we've done before, without cutting corners on materials.",
+      "Our showroom fit-out at Afrah Central Mall came together faster than any commercial build we've done before, without cutting corners on materials — and the rooftop garden and play zone bring in families on weekends, not just weekday shoppers.",
     name: "Farhana Chowdhury",
     role: "Director, retail tenant",
   },

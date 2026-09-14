@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, MapPin, ShieldCheck, Users } from "lucide-react";
+import { ArrowUpRight, Leaf, MapPin, ShieldCheck, Users } from "lucide-react";
 import { useState } from "react";
 import BlueprintGrid from "../components/BlueprintGrid";
 import Container from "../components/Container";
@@ -17,6 +17,11 @@ import Team from "../components/Team";
 import { BD_HABIBULLAH_STREET } from "../data/images";
 
 const values = [
+  {
+    icon: Leaf,
+    title: "Green by design",
+    copy: "Landscaped gardens, water features, and play areas are designed into every development from day one — not added on afterward.",
+  },
   {
     icon: MapPin,
     title: "Prime locations",
@@ -66,8 +71,8 @@ export default function AboutPage() {
             <p className="text-muted text-[16px] leading-[1.7] max-w-[460px] mb-5">
               Since 2013, Al Afrah has delivered shopping malls, retail plazas, and Grade-A
               commercial towers across Bangladesh and, more recently, internationally —
-              combining modern architecture with construction our owners and tenants can
-              trust for generations.
+              pairing modern architecture with landscaped gardens, water features, and family
+              play areas that owners and tenants can trust for generations.
             </p>
             <p className="text-muted text-[16px] leading-[1.7] max-w-[460px] mb-8">
               We keep design, construction, and leasing support in-house, so the same

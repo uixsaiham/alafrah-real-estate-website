@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, Building2, Compass, HardHat, LineChart, PencilRuler } from "lucide-react";
+import { ArrowUpRight, Building2, Compass, HardHat, LineChart, PencilRuler, Waves } from "lucide-react";
 import { useState } from "react";
 import BlueprintGrid from "../components/BlueprintGrid";
 import Container from "../components/Container";
@@ -15,6 +15,7 @@ import Section from "../components/Section";
 import ServiceDetailRow, { type ServiceDetail } from "../components/ServiceDetailRow";
 import Stats from "../components/Stats";
 import {
+  BD_ALIF_BREEZE,
   BD_CONCORD_AJIMPUR,
   BD_DHAKA_DIAMOND,
   BD_DHANMONDI_VIEW,
@@ -63,8 +64,23 @@ const services: ServiceDetail[] = [
     },
   },
   {
-    icon: HardHat,
+    icon: Waves,
     step: "03",
+    title: "Landscape & water features",
+    description:
+      "Gardens, water features, and play areas designed alongside the building, not bolted on after — from the palm-lined courtyard at Afrah City Walk to the planned atrium waterfall at Afrah Central Mall. Landscaping is scoped at the same time as the floor plan, so irrigation, drainage, and plumbing are built in rather than retrofitted.",
+    includes: [
+      "Landscaped courtyards & rooftop gardens",
+      "Atrium and entrance water features",
+      "Dedicated children's play areas",
+      "Native, low-maintenance planting selections",
+    ],
+    image: BD_ALIF_BREEZE,
+    highlight: { value: "12+", label: "signature gardens and water features built across our portfolio" },
+  },
+  {
+    icon: HardHat,
+    step: "04",
     title: "Construction",
     description:
       "In-house construction teams delivering to code with quality control at every stage — including a shift to fly-ash brick, which cuts embodied carbon by roughly a third and cures stronger than traditional fired clay brick. Every new development also ships with rooftop conduit pre-run for solar, sized to offset common-area and escalator load.",
@@ -83,7 +99,7 @@ const services: ServiceDetail[] = [
   },
   {
     icon: Compass,
-    step: "04",
+    step: "05",
     title: "Leasing & tenant management",
     description:
       "Dedicated management across design, permitting, and construction to keep every project on schedule — Afrah Central Mall reached structural completion two weeks ahead of plan. Reservation holders get milestone-based payment schedules and site walkthroughs ahead of shopfront selections, so there are no surprises between booking and opening day.",
@@ -98,7 +114,7 @@ const services: ServiceDetail[] = [
   },
   {
     icon: LineChart,
-    step: "05",
+    step: "06",
     title: "Investment & capital",
     description:
       "Structured investment opportunities for partners looking for long-term returns in commercial real assets — close to a fifth of last year's bookings came from non-resident Bangladeshis buying from the UK, US, and Middle East. We handle NFCD remittance documentation and power-of-attorney registration, plus optional leasing management for owners who won't be in Dhaka to manage tenants themselves.",

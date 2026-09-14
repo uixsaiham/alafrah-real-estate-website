@@ -1,12 +1,17 @@
 "use client";
 
-import { ArrowUpRight, MapPin, ShieldCheck, Users } from "lucide-react";
+import { ArrowUpRight, Leaf, MapPin, ShieldCheck, Users } from "lucide-react";
 import Container from "./Container";
 import Kicker from "./Kicker";
 import Reveal from "./Reveal";
 import Section from "./Section";
 
 const values = [
+  {
+    icon: Leaf,
+    title: "Green by design",
+    copy: "Landscaped gardens, water features, and play areas are designed into every development from day one — not added on afterward.",
+  },
   {
     icon: MapPin,
     title: "Prime locations",
@@ -35,9 +40,9 @@ export default function About() {
           </h2>
           <p className="text-muted text-[16px] leading-[1.7] max-w-[460px] mb-8">
             Since our founding, Al Afrah has delivered shopping malls, retail plazas, and
-            Grade-A commercial towers across Bangladesh and internationally — combining
-            modern architecture with construction our owners and tenants can trust for
-            generations.
+            Grade-A commercial towers across Bangladesh and internationally — pairing modern
+            architecture with landscaped gardens, water features, and family play areas that
+            owners and tenants can trust for generations.
           </p>
           <a href="/projects" className="flex items-center gap-[10px] pb-[7px] border-b border-ink text-[13px] w-max">
             See our work <ArrowUpRight size={16} />

@@ -3,6 +3,7 @@ import {
   BD_BANANI_MODEL_TOWN,
   BD_CONCORD_AJIMPUR,
   BD_DHAKA_DIAMOND,
+  BD_GREEN_NEST,
   BD_HABIBULLAH_STREET,
   BD_SUSTAINABLE_AERIAL,
 } from "./images";
@@ -20,6 +21,23 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "gardens-water-features-every-development",
+    category: "Design philosophy",
+    readTime: "6 min read",
+    title: "Why every Al Afrah development gets a garden, a water feature, and a play area",
+    excerpt:
+      "Landscaping isn't decoration we add after the building is finished — it's scoped alongside the floor plan from day one. Here's why, and what it costs us to do it that way.",
+    image: BD_GREEN_NEST,
+    date: "2026-07-02",
+    author: "Sabrina Karim, Head of Architecture & Design",
+    content: [
+      "Ask any mall operator in Dhaka what keeps families coming back on a weekend, and footfall data tells the same story every time: it isn't the anchor store, it's whether there's somewhere pleasant to sit, something for children to do, and shade that isn't just an awning. We stopped treating that as an afterthought a few years ago.",
+      "Every Al Afrah development now starts with the landscaping brief at the same table as the architectural one — not handed to a contractor after the building is topped out. That means irrigation lines, drainage falls, and water feature plumbing get designed into the structure itself, rather than retrofitted into a finished shell, which is both cheaper and far less likely to leak five years later.",
+      "The payoff shows up in the numbers: developments with a landscaped courtyard or rooftop garden consistently post stronger weekend footfall than comparable buildings without one, and tenants on those floors ask for it by name when we're planning a new project. Afrah City Walk's splash fountain plaza has become a de facto meeting point for the whole neighborhood, not just shoppers.",
+      "None of this replaces good retail fundamentals — footfall, access, and tenant mix still do the heavy lifting. But a garden, a water feature, and somewhere for kids to play turn a building people visit into a place people choose to spend their afternoon, and that difference compounds over the life of a lease.",
+    ],
+  },
   {
     slug: "sustainable-materials-commercial-construction",
     category: "Sustainability",
