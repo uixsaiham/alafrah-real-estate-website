@@ -24,8 +24,12 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
         </div>
         <Container className="py-[120px] text-center">
           <h1 className="font-serif text-[40px] mb-4">Story not found.</h1>
-          <a href="/blog" className="inline-flex items-center gap-2 border-b border-ink pb-1 text-[13px]">
-            Back to the journal <ArrowUpRight size={15} />
+          <a
+            href="/blog"
+            className="group inline-flex items-center gap-2 border-b border-ink pb-1 text-[13px] transition-colors duration-200 hover:text-moss hover:border-moss"
+          >
+            Back to the journal{" "}
+            <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
           </a>
         </Container>
         <Footer />

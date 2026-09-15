@@ -21,8 +21,12 @@ export default function Projects() {
               Places worth<br /><em className="italic text-gold-dark">a second look.</em>
             </h2>
           </div>
-          <a href="/projects?type=Buy" className="flex items-center gap-[10px] pb-[7px] border-b border-ink text-[13px] w-max">
-            View all projects <ArrowUpRight size={16} />
+          <a
+            href="/projects?type=Buy"
+            className="group flex items-center gap-[10px] pb-[7px] border-b border-ink text-[13px] w-max transition-colors duration-200 hover:text-moss hover:border-moss"
+          >
+            View all projects{" "}
+            <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
           </a>
         </Reveal>
 

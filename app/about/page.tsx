@@ -80,8 +80,12 @@ export default function AboutPage() {
               accountability is the reason brands and investors come back to us for their
               second and third location.
             </p>
-            <a href="/projects?type=Buy" className="flex items-center gap-[10px] pb-[7px] border-b border-ink text-[13px] w-max">
-              See our work <ArrowUpRight size={16} />
+            <a
+              href="/projects?type=Buy"
+              className="group flex items-center gap-[10px] pb-[7px] border-b border-ink text-[13px] w-max transition-colors duration-200 hover:text-moss hover:border-moss"
+            >
+              See our work{" "}
+              <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
             </a>
           </Reveal>
 

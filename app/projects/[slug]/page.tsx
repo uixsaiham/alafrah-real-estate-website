@@ -27,8 +27,12 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
         </div>
         <Container className="py-[120px] text-center">
           <h1 className="font-serif text-[40px] mb-4">Project not found.</h1>
-          <a href="/projects" className="inline-flex items-center gap-2 border-b border-ink pb-1 text-[13px]">
-            Back to all projects <ArrowUpRight size={15} />
+          <a
+            href="/projects"
+            className="group inline-flex items-center gap-2 border-b border-ink pb-1 text-[13px] transition-colors duration-200 hover:text-moss hover:border-moss"
+          >
+            Back to all projects{" "}
+            <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
           </a>
         </Container>
         <Footer />
@@ -119,11 +123,15 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
           </div>
           <button
             onClick={() => setEnquiryOpen(true)}
-            className="flex items-center justify-between w-full px-[18px] py-4 border-0 bg-moss text-white text-[13px] transition-transform duration-200 hover:-translate-y-0.5"
+            className="group flex items-center justify-between w-full px-[18px] py-4 border-0 bg-moss text-white text-[13px] transition-all duration-200 hover:-translate-y-0.5 hover:bg-moss-dark hover:shadow-[0_14px_28px_rgba(20,18,26,.25)]"
           >
-            Enquire about this project <ArrowUpRight size={17} />
+            Enquire about this project{" "}
+            <ArrowUpRight size={17} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
           </button>
-          <a href="tel:+8801711030749" className="flex items-center justify-center gap-2 w-full mt-3 py-4 border border-ink text-[13px]">
+          <a
+            href="tel:+8801711030749"
+            className="flex items-center justify-center gap-2 w-full mt-3 py-4 border border-ink text-[13px] transition-all duration-200 hover:-translate-y-0.5 hover:bg-ink hover:text-white"
+          >
             Call 01711-030749
           </a>
         </Reveal>

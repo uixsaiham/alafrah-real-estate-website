@@ -23,8 +23,12 @@ export default function Journal() {
               Stories from <em className="italic text-gold-dark">the build.</em>
             </h2>
           </div>
-          <a href="/blog" className="flex items-center gap-[10px] pb-[7px] border-b border-ink text-[13px] w-max">
-            Read the journal <ArrowUpRight size={16} />
+          <a
+            href="/blog"
+            className="group flex items-center gap-[10px] pb-[7px] border-b border-ink text-[13px] w-max transition-colors duration-200 hover:text-moss hover:border-moss"
+          >
+            Read the journal{" "}
+            <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
           </a>
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-[1.6fr_1fr_1fr] gap-[22px]">

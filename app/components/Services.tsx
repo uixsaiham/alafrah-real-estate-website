@@ -50,8 +50,12 @@ export default function Services() {
               One partner,<br /><em className="italic text-gold-dark">every step of the way.</em>
             </h2>
           </div>
-          <a href="/services" className="flex items-center gap-[10px] pb-[7px] border-b border-ink text-[13px] w-max">
-            How we work <ArrowUpRight size={16} />
+          <a
+            href="/services"
+            className="group flex items-center gap-[10px] pb-[7px] border-b border-ink text-[13px] w-max transition-colors duration-200 hover:text-moss hover:border-moss"
+          >
+            How we work{" "}
+            <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
           </a>
         </Reveal>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line">

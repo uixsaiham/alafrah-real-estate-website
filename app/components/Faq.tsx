@@ -54,12 +54,12 @@ export default function Faq() {
                 <div key={faq.q} className="border-t border-line last:border-b">
                   <button
                     onClick={() => setOpenIndex(open ? null : index)}
-                    className="flex items-center justify-between w-full py-6 text-left gap-6"
+                    className="group flex items-center justify-between w-full py-6 text-left gap-6 transition-colors duration-200 hover:text-moss"
                   >
-                    <span className="font-serif text-[19px] leading-[1.3]">{faq.q}</span>
+                    <span className="font-serif text-[19px] leading-[1.3] transition-colors duration-200">{faq.q}</span>
                     <Plus
                       size={18}
-                      className={`shrink-0 text-moss transition-transform duration-300 ${open ? "rotate-45" : ""}`}
+                      className={`shrink-0 text-moss transition-transform duration-300 group-hover:scale-125 ${open ? "rotate-45" : ""}`}
                     />
                   </button>
                   <div

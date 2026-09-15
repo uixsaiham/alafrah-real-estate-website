@@ -101,7 +101,7 @@ export default function Nav({
             <div className={`flex items-center gap-[16px] text-[13px] ${textColor}`}>
               <a
                 href="tel:+8801711030749"
-                className={`hidden lg:flex items-center gap-[9px] pl-[16px] pr-[18px] py-[13px] border transition-all duration-300 ${
+                className={`hidden lg:flex items-center gap-[9px] pl-[16px] pr-[18px] py-[13px] border transition-all duration-300 hover:-translate-y-0.5 ${
                   onDark
                     ? "border-white/30 text-white/85 hover:border-white/60 hover:bg-white/10 hover:text-white"
                     : "border-ink/25 text-muted hover:border-ink/45 hover:bg-ink/5 hover:text-ink"
@@ -133,7 +133,7 @@ export default function Nav({
                 />
               </button>
               <button
-                className="md:hidden border-0 bg-transparent"
+                className={`md:hidden grid place-items-center w-9 h-9 -mr-2 border-0 bg-transparent transition-transform duration-200 hover:scale-110 active:scale-95 ${textColor}`}
                 aria-label="Open navigation"
                 onClick={() => setMobileOpen(true)}
               >
@@ -159,7 +159,9 @@ export default function Nav({
               <motion.button
                 aria-label="Close navigation"
                 onClick={() => setMobileOpen(false)}
+                whileHover={{ rotate: 90, scale: 1.1 }}
                 whileTap={{ scale: 0.9, rotate: 90 }}
+                transition={{ duration: 0.25, ease: EASE }}
               >
                 <X size={22} />
               </motion.button>
@@ -172,6 +174,7 @@ export default function Nav({
                   onClick={() => setMobileOpen(false)}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
+                  whileHover={{ x: 6, color: "#e9c46a", transition: { duration: 0.2, ease: EASE } }}
                   transition={{ duration: 0.4, delay: 0.1 + index * 0.05, ease: EASE }}
                 >
                   {link.label}
@@ -182,6 +185,8 @@ export default function Nav({
               className="flex gap-[10px] items-center bg-gold text-moss-dark px-[18px] py-[13px] mt-10 text-[13px] font-semibold shadow-[0_8px_20px_rgba(240,180,41,.35)]"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -3, boxShadow: "0 12px 28px rgba(240,180,41,.5)", transition: { duration: 0.25, ease: EASE } }}
+              whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.4, delay: 0.1 + links.length * 0.05, ease: EASE }}
               onClick={() => {
                 setMobileOpen(false);
@@ -192,9 +197,10 @@ export default function Nav({
             </motion.button>
             <motion.a
               href="tel:+8801711030749"
-              className="flex items-center gap-2 mt-6 text-white/80"
+              className="flex items-center gap-2 mt-6 text-white/80 transition-colors duration-200"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
+              whileHover={{ x: 4, color: "#ffffff", transition: { duration: 0.2, ease: EASE } }}
               transition={{ duration: 0.4, delay: 0.15 + links.length * 0.05, ease: EASE }}
             >
               <Phone size={14} /> 01711-030749

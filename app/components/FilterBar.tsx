@@ -60,8 +60,10 @@ export default function FilterBar({
             key={option}
             type="button"
             onClick={() => onChange({ ...filters, listingType: option, status: "All" })}
-            className={`flex-1 py-4 font-serif text-[17px] transition-colors duration-300 ${EASE} ${
-              filters.listingType === option ? "bg-moss text-white" : "bg-transparent text-ink hover:bg-paper"
+            className={`flex-1 py-4 font-serif text-[17px] transition-all duration-300 ${EASE} ${
+              filters.listingType === option
+                ? "bg-moss text-white"
+                : "bg-transparent text-ink hover:bg-paper hover:-translate-y-[2px]"
             }`}
           >
             {option === "Buy" ? "Buy" : option === "Rent" ? "Rent" : "Sell"}

@@ -59,16 +59,16 @@ export default function ProjectShowcase() {
             <button
               aria-label="Scroll left"
               onClick={() => scrollByCard(-1)}
-              className="grid place-items-center w-11 h-11 border border-white/25 transition-colors duration-300 ease-[cubic-bezier(.22,1,.36,1)] hover:bg-white/10 hover:border-white/45"
+              className="group grid place-items-center w-11 h-11 border border-white/25 transition-all duration-300 ease-[cubic-bezier(.22,1,.36,1)] hover:bg-white/10 hover:border-white/45 hover:-translate-x-1"
             >
-              <ArrowLeft size={16} />
+              <ArrowLeft size={16} className="transition-transform duration-300 group-hover:-translate-x-0.5" />
             </button>
             <button
               aria-label="Scroll right"
               onClick={() => scrollByCard(1)}
-              className="grid place-items-center w-11 h-11 border border-white/25 transition-colors duration-300 ease-[cubic-bezier(.22,1,.36,1)] hover:bg-white/10 hover:border-white/45"
+              className="group grid place-items-center w-11 h-11 border border-white/25 transition-all duration-300 ease-[cubic-bezier(.22,1,.36,1)] hover:bg-white/10 hover:border-white/45 hover:translate-x-1"
             >
-              <ArrowRight size={16} />
+              <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5" />
             </button>
           </Reveal>
         </Container>

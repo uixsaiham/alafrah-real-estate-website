@@ -186,6 +186,26 @@ export const projects: Project[] = [
       "Al Afrah's first international development, Afrah International Plaza combines ground-floor retail with serviced office floors above, set around a landscaped entrance plaza — built to UK code with the same delivery discipline as our Dhaka developments.",
     amenities: ["Landscaped entrance plaza", "Ground-floor retail", "Serviced office floors", "Covered parking", "Elevator access", "On-site management"],
   },
+  {
+    slug: "afrah-dhanmondi-heights",
+    name: "Afrah Dhanmondi Heights",
+    location: "Dhanmondi, Dhaka",
+    status: "Ready to move",
+    type: "Commercial",
+    listingType: "Buy",
+    floors: 12,
+    sizeSqft: "450–2,600 sqft",
+    sizeKatha: "0.6–3.6 katha",
+    startingPrice: "৳95 lakh",
+    priceNumeric: 9_500_000,
+    priceUnit: "total",
+    currency: "BDT",
+    image: OFFICE_TOWER_CURVE_WHITE,
+    gallery: [OFFICE_TOWER_CURVE_WHITE, OFFICE_TOWER_FACADE, JUNCTION_COURTYARD_ATRIUM],
+    description:
+      "A boutique office address for Dhanmondi, Afrah Dhanmondi Heights pairs column-free floor plates with a landscaped entrance courtyard, set back from the main road for a quieter, greener approach than the area's older commercial stock. Fully handed over, with floors configurable as single-tenant offices or subdivided suites for consultancies, clinics, and agencies drawn to the neighbourhood's mix of residential and institutional footfall.",
+    amenities: ["Landscaped entrance courtyard", "Column-free floor plates", "Rooftop terrace", "Central AC", "Passenger + service lifts", "24/7 security", "Backup generator", "Reserved parking"],
+  },
 
   // Resale — individually owned commercial units listed for sale
   {

@@ -34,9 +34,10 @@ export default function FeaturedListings({
           </div>
           <a
             href={`/projects?type=${listingType}`}
-            className="flex items-center gap-[10px] pb-[7px] border-b border-ink text-[13px] w-max"
+            className="group flex items-center gap-[10px] pb-[7px] border-b border-ink text-[13px] w-max transition-colors duration-200 hover:text-moss hover:border-moss"
           >
-            View all {listingType.toLowerCase()} listings <ArrowUpRight size={16} />
+            View all {listingType.toLowerCase()} listings{" "}
+            <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
           </a>
         </Reveal>
 

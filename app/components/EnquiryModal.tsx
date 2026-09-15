@@ -22,10 +22,11 @@ export default function EnquiryModal({ onClose }: { onClose: () => void }) {
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
       >
         <button
-          className="absolute right-[27px] top-[25px] flex items-center gap-2 text-muted bg-transparent border-0 font-mono text-[10px] uppercase tracking-[.08em]"
+          className="group absolute right-[27px] top-[25px] flex items-center gap-2 text-muted bg-transparent border-0 font-mono text-[10px] uppercase tracking-[.08em] transition-colors duration-200 hover:text-ink"
           onClick={onClose}
         >
-          Close <span className="text-2xl font-light">×</span>
+          Close{" "}
+          <span className="text-2xl font-light inline-block transition-transform duration-300 group-hover:rotate-90">×</span>
         </button>
         <p className="font-mono text-[10px] uppercase tracking-[.09em] text-moss mb-[15px]">Book a visit</p>
         <h2 className="font-serif font-bold text-[42px] md:text-[48px] mb-[35px] leading-[1.05]">
@@ -55,10 +56,11 @@ export default function EnquiryModal({ onClose }: { onClose: () => void }) {
           </select>
         </label>
         <button
-          className="flex items-center justify-between w-full px-[18px] py-4 mt-5 border-0 bg-moss text-white text-[13px] transition-transform duration-200 hover:-translate-y-0.5"
+          className="group flex items-center justify-between w-full px-[18px] py-4 mt-5 border-0 bg-moss text-white text-[13px] transition-all duration-200 hover:-translate-y-0.5 hover:bg-moss-dark hover:shadow-[0_14px_28px_rgba(20,18,26,.25)]"
           onClick={onClose}
         >
-          Request a visit <ArrowUpRight size={17} />
+          Request a visit{" "}
+          <ArrowUpRight size={17} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
         </button>
       </motion.div>
     </motion.div>

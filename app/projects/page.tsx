@@ -136,7 +136,7 @@ function ProjectsPageContent() {
             <p className="font-serif text-[24px] mb-2">No properties match those filters.</p>
             <button
               onClick={() => setFilters(defaultFilters)}
-              className="mt-4 px-5 py-3 border border-ink text-[13px] transition-colors duration-200 hover:bg-ink hover:text-white"
+              className="mt-4 px-5 py-3 border border-ink text-[13px] transition-all duration-200 hover:bg-ink hover:text-white hover:-translate-y-0.5"
             >
               Reset filters
             </button>

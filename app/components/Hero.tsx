@@ -82,14 +82,14 @@ export default function Hero({ onEnquire }: { onEnquire: () => void }) {
             >
               <a
                 href="/projects"
-                className="group flex items-center justify-center gap-[10px] px-6 py-[12px] bg-white text-moss-dark text-[13px] font-medium transition-transform duration-200 hover:-translate-y-0.5"
+                className="group flex items-center justify-center gap-[10px] px-6 py-[12px] bg-white text-moss-dark text-[13px] font-medium shadow-[0_10px_24px_rgba(0,0,0,.18)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(0,0,0,.28)]"
               >
                 Explore all properties
                 <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
               <button
                 onClick={onEnquire}
-                className="group flex items-center justify-center gap-[10px] px-6 py-[12px] border border-white/55 text-[13px] transition-colors duration-200 hover:bg-white/10"
+                className="group flex items-center justify-center gap-[10px] px-6 py-[12px] border border-white/55 text-[13px] transition-all duration-200 hover:bg-white/10 hover:border-white/80 hover:-translate-y-0.5"
               >
                 Book a site visit
                 <MoveRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />

@@ -98,7 +98,7 @@ export default function HeroSlider() {
               key={s.title}
               onClick={() => setIndex(i)}
               aria-label={`Show slide ${i + 1}: ${s.title}`}
-              className="relative h-[3px] w-8 bg-white/25 overflow-hidden"
+              className="group relative h-[3px] w-8 bg-white/25 overflow-hidden transition-all duration-200 hover:h-[5px] hover:bg-white/45"
             >
               {i === index && (
                 <motion.span

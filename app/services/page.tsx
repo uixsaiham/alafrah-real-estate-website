@@ -231,9 +231,10 @@ export default function ServicesPage() {
           <Reveal delay={0.1}>
             <button
               onClick={() => setEnquiryOpen(true)}
-              className="flex items-center gap-[10px] bg-white text-moss-dark px-[22px] py-[15px] text-[13px] transition-transform duration-300 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-0.5"
+              className="group flex items-center gap-[10px] bg-white text-moss-dark px-[22px] py-[15px] text-[13px] shadow-[0_10px_24px_rgba(0,0,0,.18)] transition-all duration-300 ease-[cubic-bezier(.22,1,.36,1)] hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(0,0,0,.28)]"
             >
-              Book a visit <ArrowUpRight size={16} />
+              Book a visit{" "}
+              <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5" />
             </button>
           </Reveal>
         </Container>
