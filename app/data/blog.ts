@@ -1,11 +1,11 @@
 import {
-  BD_ALIF_BREEZE,
-  BD_BANANI_MODEL_TOWN,
-  BD_CONCORD_AJIMPUR,
-  BD_DHAKA_DIAMOND,
-  BD_GREEN_NEST,
-  BD_HABIBULLAH_STREET,
   BD_SUSTAINABLE_AERIAL,
+  CITY_WALK_COURTYARD,
+  JUNCTION_COURTYARD_ATRIUM,
+  MALL_ESCALATOR_HALL,
+  MALL_PLAZA_EXTERIOR,
+  OFFICE_TOWER_CURVE_BLUE,
+  OFFICE_TOWER_CURVE_WHITE,
 } from "./images";
 
 export type BlogPost = {
@@ -28,7 +28,7 @@ export const blogPosts: BlogPost[] = [
     title: "Why every Al Afrah development gets a garden, a water feature, and a play area",
     excerpt:
       "Landscaping isn't decoration we add after the building is finished — it's scoped alongside the floor plan from day one. Here's why, and what it costs us to do it that way.",
-    image: BD_GREEN_NEST,
+    image: CITY_WALK_COURTYARD,
     date: "2026-07-02",
     author: "Sabrina Karim, Head of Architecture & Design",
     content: [
@@ -62,7 +62,7 @@ export const blogPosts: BlogPost[] = [
     title: "Afrah Central Mall reaches structural completion",
     excerpt:
       "The Gulshan flagship has topped out ahead of schedule, with finishing work now underway across all eight floors.",
-    image: BD_CONCORD_AJIMPUR,
+    image: MALL_PLAZA_EXTERIOR,
     date: "2026-05-28",
     author: "Tanvir Ahmed, Head of Construction",
     content: [
@@ -78,7 +78,7 @@ export const blogPosts: BlogPost[] = [
     title: "A guide to investing in Bangladeshi commercial real estate from abroad",
     excerpt:
       "What non-resident Bangladeshis need to know about remittance channels, documentation, and leasing management before buying a shop or office unit from overseas.",
-    image: BD_ALIF_BREEZE,
+    image: OFFICE_TOWER_CURVE_WHITE,
     date: "2026-05-10",
     author: "Faria Rahman, Director of Leasing & Investment",
     content: [
@@ -95,7 +95,7 @@ export const blogPosts: BlogPost[] = [
     title: "Afrah Junction, one year after opening",
     excerpt:
       "We checked back in with three retail tenants who opened during the first wave of handovers to see what's held up — and what they'd tell a brand considering a move in.",
-    image: BD_BANANI_MODEL_TOWN,
+    image: JUNCTION_COURTYARD_ATRIUM,
     date: "2026-04-22",
     author: "Al Afrah Editorial",
     content: [
@@ -111,7 +111,7 @@ export const blogPosts: BlogPost[] = [
     title: "Why Grade-A office demand near Motijheel keeps climbing",
     excerpt:
       "A look at the office vacancy data behind our decision to build Afrah Trade Tower, and what it means for businesses weighing a move.",
-    image: BD_DHAKA_DIAMOND,
+    image: OFFICE_TOWER_CURVE_BLUE,
     date: "2026-03-30",
     author: "Faria Rahman, Director of Leasing & Investment",
     content: [
@@ -127,7 +127,7 @@ export const blogPosts: BlogPost[] = [
     title: "Buy or lease? A framework for retail brands entering a new mall",
     excerpt:
       "A practical way to think through the buy-versus-lease decision for a new shop or showroom, beyond just comparing an EMI to a monthly rent.",
-    image: BD_HABIBULLAH_STREET,
+    image: MALL_ESCALATOR_HALL,
     date: "2026-02-18",
     author: "Al Afrah Editorial",
     content: [
